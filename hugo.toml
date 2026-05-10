@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://BryanG-Dev.github.io/my_portfolio/"
 languageCode = "en-us"
 title = ""
 theme = "blowfish"
