@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>http://localhost:1313/</link>
+    <link>https://BryanG-Dev.github.io/my_portfolio/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 </copyright>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://BryanG-Dev.github.io/my_portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://localhost:1313/resume/</link>
+      <link>https://BryanG-Dev.github.io/my_portfolio/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/resume/</guid>
-      <description>&lt;h1 style=&#34;text-align:center; margin-top:30px;&#34;&gt;&lt;/h1&gt;&#xD;&#xA;&lt;div style=&#34;display:flex; justify-content:center; margin:20px 0;&#34;&gt;&#xD;&#xA;  &lt;a href=&#34;http://localhost:1313/bgresume2026.pdf&#34; download&#xD;&#xA;     style=&#34;display:inline-block;&#xD;&#xA;            padding:10px 14px;&#xD;&#xA;            border-radius:8px;&#xD;&#xA;            background:#0066cc;&#xD;&#xA;            color:#fff !important;&#xD;&#xA;            text-decoration:none !important;&#xD;&#xA;            font-weight:500;&#34;&gt;&#xD;&#xA;    ⬇ Download Resume&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;div style=&#34;width:100%; display:flex; justify-content:center;&#34;&gt;&#xD;&#xA;  &lt;iframe &#xD;&#xA;    src=&#34;http://localhost:1313/bgresume2026.pdf&#34;&#xD;&#xA;    style=&#34;width:100%; max-width:900px; height:85vh; border:1px solid #ddd; border-radius:8px;&#34;&gt;&#xD;&#xA;  &lt;/iframe&gt;&#xD;&#xA;&lt;/div&gt;</description>
+      <guid>https://BryanG-Dev.github.io/my_portfolio/resume/</guid>
+      <description>&lt;h1 style=&#34;text-align:center; margin-top:30px;&#34;&gt;&lt;/h1&gt;&#xD;&#xA;&lt;div style=&#34;display:flex; justify-content:center; margin:20px 0;&#34;&gt;&#xD;&#xA;  &lt;a href=&#34;./bgresume2026.pdf&#34; download&#xD;&#xA;     style=&#34;display:inline-block;&#xD;&#xA;            padding:10px 14px;&#xD;&#xA;            border-radius:8px;&#xD;&#xA;            background:#0066cc;&#xD;&#xA;            color:#fff !important;&#xD;&#xA;            text-decoration:none !important;&#xD;&#xA;            font-weight:500;&#34;&gt;&#xD;&#xA;    ⬇ Download Resume&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;div style=&#34;width:100%; display:flex; justify-content:center;&#34;&gt;&#xD;&#xA;  &lt;iframe &#xD;&#xA;    src=&#34;./bgresume2026.pdf&#34;&#xD;&#xA;    style=&#34;width:100%; max-width:900px; height:85vh; border:1px solid #ddd; border-radius:8px;&#34;&gt;&#xD;&#xA;  &lt;/iframe&gt;&#xD;&#xA;&lt;/div&gt;</description>
       
     </item>
     

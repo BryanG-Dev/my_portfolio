@@ -1,4 +1,6 @@
 baseURL = "https://BryanG-Dev.github.io/my_portfolio/"
+canonifyURLs = true
+relativeURLs = true
 languageCode = "en-us"
 title = ""
 theme = "blowfish"
