@@ -1,0 +1,123 @@
+.floating-nav {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 12px;
+  border-radius: 14px;
+
+  background: rgba(96, 165, 250, 0.10);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+
+  transition: 0.25s ease;
+}
+
+.floating-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.floating-nav a:hover {
+  opacity: 1;
+}
+
+/* ===================================================== */
+/* PROJECT ACCORDION SYSTEM */
+/* ===================================================== */
+
+/* Hidden by default */
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+
+  transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.2s ease;
+}
+
+/* Expanded state */
+.project-details.open {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+/* Toggle button */
+.toggle-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  background: rgba(96, 165, 250, 0.15);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  opacity: 0.85;
+
+  transition: 0.2s ease;
+}
+
+.toggle-btn:hover {
+  opacity: 1;
+  background: rgba(96, 165, 250, 0.25);
+}
+
+/* Generic class to mirror the toggle-btn style */
+.action-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 12px; /* Slightly adjusted for links */
+    border-radius: 8px;
+
+    /* Matching your .toggle-btn exactly */
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: white !important;
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    transition: 0.2s ease;
+}
+
+.action-btn:hover {
+    opacity: 1;
+    background: rgba(96, 165, 250, 0.25);
+    /* Adding a slight lift to match the game dev 'feel' */
+    transform: translateY(-1px);
+}
+
+/* The specific override */
+.btn-linkedin {
+    /* We use !important to ensure it beats the base .action-btn background */
+    background: #0A66C2 !important; 
+    opacity: 0.9; /* Matches your other buttons' slightly transparent look */
+}
+
+.btn-linkedin:hover {
+    background: #0077B5 !important; /* A slightly different blue for hover */
+    filter: brightness(1.2);
+    opacity: 1;
+}

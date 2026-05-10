@@ -1,0 +1,85 @@
+<div id="floating-nav" class="floating-nav">
+  <a href="#top">Top</a>
+  <a href="#about">About Me</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+</div>
+
+<script>
+(function () {
+  const nav = document.getElementById("floating-nav");
+  if (!nav) return;
+
+  let lastScrollY = window.scrollY;
+  let lastInteractionY = window.scrollY;
+
+function closeAllDetails() {
+  document.querySelectorAll(".project-details.open")
+    .forEach(el => el.classList.remove("open"));
+
+  document.querySelectorAll(".toggle-btn").forEach(btn => {
+    const details = btn.nextElementSibling;
+
+    if (!details || !details.classList.contains("project-details")) return;
+
+    if (!details.classList.contains("open")) {
+      btn.textContent = "Show Details";
+    }
+  });
+}
+
+  function onScroll() 
+  {
+    const current = window.scrollY;
+    const scrollingUp = current < lastScrollY;
+    const scrollingDown = current > lastScrollY;
+    const pastHero = current > 300;
+
+    // NAV visibility logic (unchanged)
+    if (scrollingUp && pastHero) 
+      nav.classList.add("visible");
+    else 
+      nav.classList.remove("visible");
+
+    // ACCORDION auto-close logic
+    const scrollDelta = Math.abs(current - lastInteractionY);
+    const openPanels = document.querySelector(".project-details.open");
+
+    if (
+      scrollingDown &&
+      scrollDelta > 450 &&
+      openPanels
+    ) {
+      closeAllDetails();
+    }
+
+    lastScrollY = current;
+  }
+
+  // Track when user interacts with project toggles
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("toggle-btn")) {
+      lastInteractionY = window.scrollY;
+    }
+  });
+
+  window.addEventListener("scroll", onScroll);
+
+  // =====================================================
+  // PROJECT TOGGLE (ADDED - SAFE, ISOLATED)
+  // =====================================================
+window.toggleDetails = function (btn) {
+  const details = btn.nextElementSibling;
+
+  if (!details || !details.classList.contains("project-details")) return;
+
+  const isOpen = details.classList.contains("open");
+
+  details.classList.toggle("open");
+
+  btn.textContent = isOpen ? "Show Details" : "Hide Details";
+};
+
+})();
+</script>
