@@ -27,7 +27,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.134.3' # The REAL Sweet Spot for your theme
+          hugo-version: '0.160.1' # The REAL Sweet Spot for your theme
           extended: true
 
       - name: Setup Pages
