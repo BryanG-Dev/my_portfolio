@@ -9,3 +9,7 @@ colorScheme = "grey"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/nunocoracao/blowfish/v2"
