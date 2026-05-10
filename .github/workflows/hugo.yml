@@ -21,13 +21,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          # We don't need recursive submodules anymore because we use Hugo Modules!
           fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.140.0' # The "Sweet Spot" for modern Blowfish
+          hugo-version: '0.134.3' # The REAL Sweet Spot for your theme
           extended: true
 
       - name: Setup Pages
@@ -38,6 +38,7 @@ jobs:
         run: |
           hugo \
             --minify \
+            --ignoreCache \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
           
       - name: Upload artifact
