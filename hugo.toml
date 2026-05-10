@@ -1,4 +1,4 @@
-baseURL = "https://BryanG-Dev.github.io/my_portfolio/"
+baseURL = "/"
 canonifyURLs = false
 relativeURLs = true
 languageCode = "en-us"
