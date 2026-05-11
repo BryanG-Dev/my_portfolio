@@ -7,7 +7,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
+  align-items: center;    /* This centers the links horizontally in the column */
+  text-align: center;     /* Ensures text wraps/aligns centrally */
   padding: 12px;
   border-radius: 14px;
 
