@@ -255,7 +255,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Architected a reusable pre-reveal template plugin in use in multiple games, that provides visual cues for upcoming bonus outcomes. Enhancing player anticipation through animations.
+- Architected a reusable pre-reveal template plugin in use in multiple games, that provides visual cues for upcoming bonus outcomes. Enhanced player anticipation through animations.
 - Designed a fish patrol plugin to coordinate pseudo random fish animations and paths.
 - Implemented a caustics water surface shader effect. Added touch interaction support, allowing players to drag across the water to generate ripples and disturbances on button or player input. Integrated with the Pick’em bonus to enhance feedback during fish selection events.
 </div>
@@ -349,7 +349,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Reworked a legacy bonus system through animation scripting to deliver a fully reskinned experience. Working around existing bonus system limitations without modifying the underlying bonus class or core architecture.
+- Reworked a legacy bonus system through animation scripting to deliver a fully reskinned experience. Worked around existing bonus system limitations without modifying the underlying bonus class or core architecture.
 - Implemented dynamic water shader effect to enhance game presentation.
 </div>
 </div>
