@@ -1,26 +1,27 @@
+/* ===================================================== */
+/* FLOATING NAVIGATION (Centered & Balanced) */
+/* ===================================================== */
 .floating-nav {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 9999;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;    /* This centers the links horizontally in the column */
-  text-align: center;     /* Ensures text wraps/aligns centrally */
+  align-items: center;    /* Centering Fixed */
+  text-align: center;
   padding: 12px;
   border-radius: 14px;
 
-  background: rgba(96, 165, 250, 0.10);
+  /* This blends the blue with a tiny bit of the current text color */
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.15), currentColor 10%) !important;
   backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
-
   transition: 0.25s ease;
 }
 
@@ -31,94 +32,71 @@
 }
 
 .floating-nav a {
-  color: white;
+  color: var(--color-neutral-100, white) !important;
   text-decoration: none;
   font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.floating-nav a:hover {
-  opacity: 1;
 }
 
 /* ===================================================== */
 /* PROJECT ACCORDION SYSTEM */
 /* ===================================================== */
-
-/* Hidden by default */
 .project-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   margin-top: 0;
-
-  transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
 }
 
-/* Expanded state */
 .project-details.open {
-  max-height: 500px;
+  max-height: 800px;
   opacity: 1;
   margin-top: 12px;
 }
 
-/* Toggle button */
-.toggle-btn {
+/* ===================================================== */
+/* BUTTONS (Vibrant Blue & Dynamic Light Mode Tint) */
+/* ===================================================== */
+.toggle-btn, .action-btn:not(.btn-linkedin) {
+  display: inline-block;
+  text-decoration: none;
   margin-top: 10px;
-  padding: 6px 10px;
+  padding: 6px 14px;
   border-radius: 8px;
-
-  background: rgba(96, 165, 250, 0.15);
-  border: 1px solid rgba(255,255,255,0.12);
-
-  color: white;
   cursor: pointer;
-
   font-size: 0.9rem;
-  opacity: 0.85;
-
-  transition: 0.2s ease;
+  
+  /* DARK MODE: Vibrant Blue */
+  /* LIGHT MODE: Pulls 15% of the dark text color to darken the button slightly */
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.1), currentColor 15%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  color: var(--color-neutral-100, white) !important; 
+  
+  transition: all 0.2s ease;
 }
 
-.toggle-btn:hover {
-  opacity: 1;
-  background: rgba(96, 165, 250, 0.25);
+.toggle-btn:hover, .action-btn:not(.btn-linkedin):hover {
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.4), currentColor 20%) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important; /* The Nudge */
 }
 
-/* Generic class to mirror the toggle-btn style */
-.action-btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 6px 12px; /* Slightly adjusted for links */
-    border-radius: 8px;
-
-    /* Matching your .toggle-btn exactly */
-    background: rgba(96, 165, 250, 0.15);
-    border: 1px solid rgba(255,255,255,0.12);
-
-    color: white !important;
-    cursor: pointer;
-    font-size: 0.9rem;
-    opacity: 0.85;
-    transition: 0.2s ease;
-}
-
-.action-btn:hover {
-    opacity: 1;
-    background: rgba(96, 165, 250, 0.25);
-    /* Adding a slight lift to match the game dev 'feel' */
-    transform: translateY(-1px);
-}
-
-/* The specific override */
+/* ===================================================== */
+/* LINKEDIN (Untouchable Brand Blue) */
+/* ===================================================== */
 .btn-linkedin {
-    /* We use !important to ensure it beats the base .action-btn background */
-    background: #0A66C2 !important; 
-    opacity: 0.9; /* Matches your other buttons' slightly transparent look */
+  display: inline-block !important;
+  text-decoration: none !important;
+  margin-top: 10px !important;
+  padding: 6px 14px !important;
+  border-radius: 8px !important;
+  background: #0A66C2 !important;
+  border: 1px solid #0A66C2 !important;
+  color: white !important;
 }
 
 .btn-linkedin:hover {
-    background: #0077B5 !important; /* A slightly different blue for hover */
-    filter: brightness(1.2);
-    opacity: 1;
+  background: #0077B5 !important;
+  filter: brightness(1.2) !important;
+  transform: translateY(-2px) !important;
 }
