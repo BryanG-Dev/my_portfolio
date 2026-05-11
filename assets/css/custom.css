@@ -70,6 +70,7 @@
   padding: 6px 14px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 0.9rem;
   
   /* DARK MODE: Vibrant Blue */
   /* LIGHT MODE: Pulls 15% of the dark text color to darken the button slightly */
@@ -98,10 +99,23 @@
   background: #0A66C2 !important;
   border: 1px solid #0A66C2 !important;
   color: white !important;
+  font-size: 0.9rem;
 }
 
 .btn-linkedin:hover {
   background: #0077B5 !important;
   filter: brightness(1.2) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Catch-all to hide the theme's built-in scroll arrows */
+.scroll-to-top, 
+#scroll-to-top, 
+.back-to-top, 
+#back-to-top,
+.bottom-menu-item.scroll-to-top {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
