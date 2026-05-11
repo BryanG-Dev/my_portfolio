@@ -35,6 +35,12 @@
   color: var(--color-neutral-100, white) !important;
   text-decoration: none;
   font-size: 0.9rem;
+  display: inline-block; /* Added to allow transform */
+  transition: all 0.2s ease; /* Added for smooth movement */
+}
+
+.floating-nav a:hover {
+ transform: scale(1.05) !important;
 }
 
 /* ===================================================== */
