@@ -67,7 +67,7 @@ My work has primarily focused on real-time interactive systems in game developme
   margin-bottom: 1.5rem;
 ">
 
-### Software Engineer / Game Developer
+### Software Engineer / Game Programmer
 
 **Pace-O-Matic inc.**  
 2016 – Present
