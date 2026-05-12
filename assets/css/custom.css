@@ -125,7 +125,7 @@
 /* ===================================================== */
 .he-video, 
 .youtube, 
-[style*="padding-bottom: 56.25%"] {
+[style*="padding-bottom"] {
     aspect-ratio: 16 / 9 !important; /* This changes the shape from the wide bar to a standard box */
     padding-bottom: 0 !important;    /* This kills the extra space that creates green bars */
     height: auto !important;
