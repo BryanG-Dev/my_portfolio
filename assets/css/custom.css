@@ -119,3 +119,26 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* ===================================================== */
+/* REFINED YOUTUBE EMBED (16:9 Aspect Ratio & Rounding)  */
+/* ===================================================== */
+.he-video, 
+.youtube, 
+[style*="padding-bottom: 56.25%"] {
+    aspect-ratio: 16 / 9 !important; /* This changes the shape from the wide bar to a standard box */
+    padding-bottom: 0 !important;    /* This kills the extra space that creates green bars */
+    height: auto !important;
+    max-width: 850px;                /* Keeps it proportional on desktop */
+    margin: 20px auto !important;    /* Centers it and gives it space from the title */
+    border-radius: 18px !important;  /* Your preferred rounding */
+    overflow: hidden !important;
+}
+
+/* Ensure the iframe inside matches the new container shape */
+.he-video iframe, 
+.youtube iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 18px !important;
+}
