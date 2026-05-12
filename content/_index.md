@@ -29,18 +29,14 @@ My work has primarily focused on real-time interactive systems in game developme
 <section id="about">
 
 # About me
-<div style="
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 1.5rem;
-">
+<div class="glass-card">
+<div style="padding: 0rem 1.5rem -2rem 1.5rem;" >
 
 ### I strive to build and deliver high-quality software efficiently while working closely with cross-functional teams. It has been my experience that clear communication, early alignment, understanding dependencies, and edge cases across groups are key to accelerating delivery without sacrificing quality. Taking the time to clarify requirements, solidify the approach, or resolve blocks early often helps teams move faster and reduces refactor work later in the development cycle.
 
 #### Skills include:
 
+</div>
 <div style="max-width:600px; margin:0 auto; text-align:left;">
 
 - **Languages:** Java, OpenGL, XML, GLSL, Python, C++, GML, HTML, CSS, Spanish 
@@ -59,18 +55,12 @@ My work has primarily focused on real-time interactive systems in game developme
 
 # Experience
 
-<div style="
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 1.5rem;
-">
+<div class="glass-card">
+<div style="padding: 0rem 1.5rem -2rem 1.5rem;" >
 
 ### Software Engineer / Game Programmer
 
-**Pace-O-Matic inc.**  
-2016 – Present
+**Pace-O-Matic inc.** 2016 – Present
 
 <div style="max-width:600px; margin:0 auto; text-align:left;">
 
@@ -85,6 +75,7 @@ My work has primarily focused on real-time interactive systems in game developme
 
 </div>
 </div>
+</div>
 
 </section>
 
@@ -92,51 +83,28 @@ My work has primarily focused on real-time interactive systems in game developme
 
 <section id="education">
 
-# Education
-<div style="
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 1rem;
-">
+## Education
+
+<div class="glass-card">
 
 ### Oracle Certified Associate — Java SE 8 Programmer
 **Issued: Java SE 8 Certification**
 <br>2026
 
-  <div style="
-    display: flex;
-    justify-content: center;
-    margin-top: -2rem;
-  ">
-    <img 
-      src="/images/javabadge.png"
-      alt="Oracle Badge"
-      style="
-        width:200px;
-        height:140px;
-        object-fit:contain;
-        display:block;
-        margin-bottom: -1rem;
-      "
-    />
-  </div>
+<div style="display: flex; justify-content: center; margin-top: -2rem;">
+<img src="/images/javabadge.png" alt="Oracle Badge" style="width:200px; height:140px; object-fit:contain; display:block; margin-bottom: -1rem;">
+</div>
 
 </div>
 
-<div style="
-  padding: 1rem 1.5rem 0rem 1.5rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 1.5rem;
-">
+<div class="glass-card">
+<div style="padding: 0rem 1.5rem -2rem 1.5rem; margin-bottom: -2rem;" >
 
 ### Associate of Applied Science — Computer Simulations & Game Programming
+**Gwinnett Technical College**
+<br>2010 – 2015
 
-**Gwinnett Technical College**  
-2010 – 2015
+</div>
 </div>
 
 </section>
