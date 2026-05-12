@@ -1,0 +1,8 @@
+# Ignore Hugo build output
+public/
+resources/
+hugo_stats.json
+
+# Ignore OS specific files
+.DS_Store
+thumbs.db
