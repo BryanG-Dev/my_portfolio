@@ -15,14 +15,20 @@
   border-radius: 14px;
 
   /* This blends the blue with a tiny bit of the current text color */
-  background: color-mix(in srgb, rgba(96, 165, 250, 0.15), currentColor 10%) !important;
+    background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
   transition: 0.25s ease;
+}
+
+/* DARK MODE OVERRIDE */
+.dark .floating-nav {
+    /* Keeps the same mix but softens the border for dark mode */
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
 }
 
 .floating-nav.visible {
@@ -166,7 +172,7 @@
     
     /* UNIVERSAL COLOR LOGIC (Matched to Idle Nav) */
     /* Changed 0.4 down to 0.15 to match the unhovered nav background */
-    background: color-mix(in srgb, rgba(96, 165, 250, 0.15), currentColor 10%) !important;
+    background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
     border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
