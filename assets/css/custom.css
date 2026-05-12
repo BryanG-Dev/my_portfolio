@@ -142,3 +142,14 @@
     height: 100% !important;
     border-radius: 18px !important;
 }
+
+/* Universal fix for the first element inside custom styled cards */
+.prose div[style*="background"] > :first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Also tightens the gap for the Education section specifically if needed */
+#education div > :first-child {
+    margin-top: 0 !important;
+}

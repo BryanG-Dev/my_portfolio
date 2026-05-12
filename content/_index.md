@@ -94,7 +94,7 @@ My work has primarily focused on real-time interactive systems in game developme
 
 # Education
 <div style="
-  padding: 1.5rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   border-radius: 12px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
@@ -108,7 +108,7 @@ My work has primarily focused on real-time interactive systems in game developme
   <div style="
     display: flex;
     justify-content: center;
-    margin-top: -4rem;
+    margin-top: -2rem;
   ">
     <img 
       src="/images/javabadge.png"
@@ -126,7 +126,7 @@ My work has primarily focused on real-time interactive systems in game developme
 </div>
 
 <div style="
-  padding: 1.5rem;
+  padding: 1rem 1.5rem 0rem 1.5rem;
   border-radius: 12px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
