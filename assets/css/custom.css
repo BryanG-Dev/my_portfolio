@@ -15,7 +15,7 @@
   border-radius: 14px;
 
   /* This blends the blue with a tiny bit of the current text color */
-    background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 
@@ -80,17 +80,32 @@
   
   /* DARK MODE: Vibrant Blue */
   /* LIGHT MODE: Pulls 15% of the dark text color to darken the button slightly */
-  background: color-mix(in srgb, rgba(96, 165, 250, 0.1), currentColor 15%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: var(--color-neutral-100, white) !important; 
   
   transition: all 0.2s ease;
 }
 
-.toggle-btn:hover, .action-btn:not(.btn-linkedin):hover {
-  background: color-mix(in srgb, rgba(96, 165, 250, 0.4), currentColor 20%) !important;
+/* DARK MODE OVERRIDE */
+.dark .toggle-btn,
+.dark .action-btn:not(.btn-linkedin){
+    /* Keeps the same mix but softens the border for dark mode */
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+}
+
+.toggle-btn:hover, 
+.action-btn:not(.btn-linkedin):hover {
+  background: color-mix(in srgb, rgba(204, 212, 219, 0.5), currentColor 20%) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 2. DARK MODE HOVER OVERRIDE (This swaps it to Blue) */
+.dark .toggle-btn:hover, 
+.dark .action-btn:not(.btn-linkedin):hover {
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.2), currentColor 20%) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
-  transform: translateY(-2px) !important; /* The Nudge */
 }
 
 /* ===================================================== */
