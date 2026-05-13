@@ -28,7 +28,7 @@
 /* DARK MODE OVERRIDE */
 .dark .floating-nav {
     /* Keeps the same mix but softens the border for dark mode */
-  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 .floating-nav.visible {
@@ -91,7 +91,7 @@
 .dark .toggle-btn,
 .dark .action-btn:not(.btn-linkedin){
     /* Keeps the same mix but softens the border for dark mode */
-  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .toggle-btn:hover, 
@@ -188,13 +188,13 @@
     /* UNIVERSAL COLOR LOGIC (Matched to Idle Nav) */
     /* Changed 0.4 down to 0.15 to match the unhovered nav background */
     background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* DARK MODE OVERRIDE */
 .dark .glass-card {
     /* Keeps the same mix but softens the border for dark mode */
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Maintain the "no-gap" top for titles inside cards */
