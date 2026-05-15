@@ -16,7 +16,7 @@ My work has primarily focused on real-time interactive systems in game developme
     Resume
   </a>
 
-<button onclick="window.open('mailto:bgbrrr@live.com', '_blank');" class="action-btn">
+<button onclick="window.open('mailto:bgbrrr@live.com?subject=Portfolio:', '_blank');" class="action-btn">
   Contact Me
 </button>
 
