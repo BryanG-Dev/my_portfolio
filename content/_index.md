@@ -40,7 +40,7 @@ My work has primarily focused on real-time interactive systems in game developme
 <div style="max-width:600px; margin:0 auto; text-align:left;">
 
 - **Languages:** Java, OpenGL, XML, GLSL, Python, C++, GML, HTML, CSS, Spanish 
-- **Core CS Concepts:** Object-Oriented Programming (OOP), Design Patterns (MVC)  
+- **Core CS Concepts:** Object-Oriented Programming (OOP), Data Integrity, Design Patterns (Model View Controller, Observer, Finite State Machines)  
 - **Tools:** SVN, Spine, Git, JIRA, GIMP, Excel/Calc, ClaudeCode
 - **Focus Area:** Game Development  
 
@@ -264,7 +264,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 - Designed and built the Pick’em bonus, implementing state handling, core gameplay logic and integrating animations and audio.
 - Extended gameplay functionality through scripting to build new features without altering core architecture.
-- Implemented underwater ambience shader effects to create continuous “submerged” motion across game elements, combined with a dynamic water shader during Pick’em bonus to reinforce theme and enhance visual cohesion.
+- Implemented godrays light and underwater ambience shader effects to create continuous “submerged” motion across game elements, combined with a dynamic water shader during Pick’em bonus to reinforce theme and enhance visual cohesion.
 </div>
 </div>
 
