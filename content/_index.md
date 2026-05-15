@@ -11,17 +11,20 @@ My work has primarily focused on real-time interactive systems in game developme
 
 <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
 
+
   <a href="/resume/" target="_blank" rel="noopener" class="action-btn">
     Resume
   </a>
+
+<button onclick="window.open('mailto:bgbrrr@live.com', '_blank');" class="action-btn">
+  Contact Me
+</button>
 
   <a href="https://www.linkedin.com/in/bryan-gonzalez-361a7b406/" target="_blank" rel="noopener noreferrer" class="action-btn btn-linkedin">
     LinkedIn
   </a>
 
 </div>
-
-
 </section>
 
 ---
