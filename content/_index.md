@@ -87,7 +87,7 @@ My work has primarily focused on real-time interactive systems in game developme
 
 <section id="education">
 
-## Education
+# Education
 
 <div class="glass-card">
 
