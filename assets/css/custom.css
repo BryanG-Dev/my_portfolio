@@ -201,3 +201,10 @@
 .glass-card > :first-child {
     margin-top: 0 !important;
 }
+
+/* Hide # header  */
+h1 a.anchor, h2 a.anchor, h3 a.anchor,
+h1 .heading-anchor, h2 .heading-anchor, h3 .heading-anchor,
+h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] { 
+    display: none !important;
+}
