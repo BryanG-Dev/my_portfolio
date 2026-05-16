@@ -246,7 +246,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Architected a state and event driven character plugin that maps player interactions and underlying game states, dynamically triggering responsive character and bonus animations.
+- Architected a state and event driven character plugin that maps player interactions and underlying game states, dynamically triggering responsive character and gameplay animations.
 - Built dedicated persistence systems for Pick’em and Bonus Plays bonuses integrated with the character plugin. Tracks player bonus progress and provides visual feedback across states.
 </div>
 </div>
