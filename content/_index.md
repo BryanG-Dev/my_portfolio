@@ -170,7 +170,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Reskinned a version of a Wheel bonus capable of awarding all bonus features. Integrating full gameplay logic, animation flow, and audio feedback without modifying core architecture.
+- Reskinned a version of a Wheel bonus capable of awarding all bonus features. Integrating the character plugin, full gameplay logic, animation flow, and audio feedback without modifying core architecture.
 - Architected the characters plugin to coordinate pseudo-random animations (solo/group) and event-triggered audio-visual feedback.
 - Designed and built the Pick’em bonus, implementing state handling with internal debugging, core gameplay logic and integrating animations and audio.
 </div>
@@ -188,7 +188,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 <div class="project-details" style="text-align:left;">
 
-- Architected a character animation plugin to drive pseudo-random character animations and event-triggered audio-visual feedback, enabling dynamic and responsive animations.
+- Architected a state and event driven character plugin to drive pseudo-random character animations and event-triggered audio-visual feedback, enabling dynamic and responsive animations.
 - Designed and built the Wheel bonus system. Implemented state handling with internal debug support, core gameplay logic, and integration of animations and audio.
 - Integrated a reusable pre-reveal template plugin I created in a previous title.  Provides visual cues for upcoming bonus outcomes and enhances player anticipation.
 - Implemented a heat-wave distortion shader effect integrated with the pre-reveal system, dynamically triggered to indicate incoming bonus outcomes and enhance player anticipation.
@@ -210,7 +210,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 - Architected a parameter-driven customizable bonus timer system that tracks progression towards bonuses, enabling configurable behavior across multiple game contexts and enhancing anticipation through animation-driven feedback loops.
 - Extended an existing Pick’em system to support direct bonus entry by overriding selection state, improving pacing and matching new bonus direction.
 - Designed and built the Lock & Load bonus, implementing state handling with internal debug support, core gameplay logic and integrating animations and audio.
-- Implemented an interactive rain-and-fog window shader and added touch capabilties, enabling players to "wipe" the surface during bonus gameplay to reinforce the storm theme and enhance visual immersion.
+- Implemented an interactive rain-and-fog window shader and added touch interaction support, enabling players to "wipe" the surface during bonus gameplay to reinforce the storm theme and enhance visual immersion.
 </div>
 </div>
 
@@ -227,8 +227,8 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Architected a reusable pre-reveal template plugin in use in multiple games, that provides visual cues for upcoming bonus outcomes. Enhanced player anticipation through animations.
-- Designed a fish patrol plugin to coordinate pseudo random fish animations and paths.
+- Architected a reusable pre-reveal template plugin in use in multiple games.  Provides visual cues for upcoming bonus outcomes. Enhanced player anticipation through animations.
+- Designed a fish patrol plugin to coordinate pseudo random fish animations and paths. Enhancing game themes and ambience.
 - Implemented a caustics water surface shader effect. Added touch interaction support, allowing players to drag across the water to generate ripples and disturbances on button or player input. Integrated with the Pick’em bonus to enhance feedback during fish selection events.
 </div>
 </div>
@@ -246,9 +246,8 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Architected a character plugin that drives pig character animations behavior based on player interactions, enabling responsive and state-driven visual feedback.
-- Built dedicated persistence systems for Pick’em and Bonus Plays bonuses, tracking player progress and providing visual feedback across states.
-- Implemented gameplay-driven character and bonus animations tied to state and player interactions, reinforcing responsive visual feedback.
+- Architected a state and event driven character plugin that maps player interactions and underlying game states, dynamically triggering responsive character and bonus animations.
+- Built dedicated persistence systems for Pick’em and Bonus Plays bonuses integrated with the character plugin. Tracks player bonus progress and provides visual feedback across states.
 </div>
 </div>
 
@@ -284,7 +283,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Remastered a legacy game from landscape to portrait orientation, adapting bonus systems and integrating newly added Spine animation support while preserving core gameplay logic and backward compatibility.
+- Remastered and ported a legacy game from landscape to portrait orientation, adapting and enhancing bonus systems and integrating newly added Spine animation support while preserving core gameplay logic and backward compatibility.
 - Implemented scripted gameplay and UI enhancements to modernize presentation and extend functionality without modifying core architecture or destabilizing legacy systems.
 </div>
 </div>
@@ -302,7 +301,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Remastered a legacy game from landscape to portrait orientation, adapting bonus systems to new format while preserving core gameplay logic and backward compatibility.
+- Remastered and ported a legacy game from landscape to portrait orientation, adapting and enhancing bonus systems to new format while preserving core gameplay logic and backward compatibility.
 - Developed scripted gameplay visuals and UI enhancements to modernize presentation and extend functionality without modifying core architecture or destabilizing legacy systems.
 - Implemented simple shader-based environmental effects to enhance atmosphere and support bonus themes.
 </div>
@@ -339,7 +338,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
-- Designed and implemented all bonus animations in collaboration with dev and art team, delivering fully animated sequences through scripted integration.
+- Designed and implemented all bonus animations in collaboration with cross-functional art and development teams, delivering fully animated sequences through code and script integration.
 - Implemented a snowfall shader effect that intensifies during a specific bonus, reinforcing the winter theme and enhancing atmospheric presentation.
 </div>
 </div>
