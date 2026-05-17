@@ -8,7 +8,13 @@
       margin-top: 16px !important;
       width: calc(100% - 2rem) !important;
       max-width: 42rem !important;
-      padding: 1rem 2.5rem 1rem 1.25rem !important; /* Adjusted padding for better button clearance */
+      
+      /* KNOB 1: Container padding (Shorthand: TOP RIGHT BOTTOM LEFT)
+        Increase that first '1.5rem' to '1.8rem' or '2rem' if you want 
+        to push the links further down away from the top edge.
+      */
+      padding: 1.5rem 1.5rem 1rem 1.5rem !important; 
+      
       border-radius: 14px !important;
       backdrop-filter: blur(12px) !important;
       background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
@@ -30,25 +36,30 @@
       flex-direction: row !important;
       flex-wrap: nowrap !important;
       align-items: center !important;
-      justify-content: space-evenly !important; /* Use flexible distribution instead of fixed margins */
+      justify-content: space-between !important; 
       width: 100% !important;
-      gap: 8px !important; /* Base gap protection */
+      gap: 4px !important; 
+    }
+
+    @media (min-width: 480px) {
+      #custom-top-nav .top-nav-flex-row {
+        gap: 12px !important;
+      }
     }
 
     #custom-top-nav .nav-top-link {
       color: var(--color-neutral-100, white) !important;
       text-decoration: none !important;
-      font-size: 0.85rem !important; /* Sightly smaller baseline for sleek mobile fit */
+      font-size: 0.8rem !important; 
       font-weight: 600 !important;
       letter-spacing: 0.05em !important;
       display: inline-block !important;
       padding: 6px 4px !important;
-      margin: 0 !important; /* Nuke the fixed margins breaking mobile lines */
+      margin: 0 !important; 
       white-space: nowrap !important;
       transition: all 0.2s ease !important;
     }
 
-    /* Scale fonts up for larger viewports smoothly */
     @media (min-width: 480px) {
       #custom-top-nav .nav-top-link {
         font-size: 0.95rem !important;
@@ -61,52 +72,91 @@
       opacity: 0.85 !important;
     }
 
-    #custom-top-nav .close-top-btn {
-      position: absolute !important;
-      right: -1.25rem !important; /* Shifted safely contextually inside mobile wrapper */
-      top: 50% !important;
-      transform: translateY(-50%) !important;
-      background: none !important;
-      border: none !important;
-      color: #a3a3a3 !important;
-      cursor: pointer !important;
-      font-size: 1.1rem !important;
-      padding: 5px !important;
-      transition: color 0.2s ease !important;
-    }
-
-    #custom-top-nav .close-top-btn:hover {
-      color: #e5e5e5 !important;
-    }
-
     #custom-top-nav .top-nav-arrow-hitbox {
       display: inline-block !important;
       text-align: center !important;
       font-weight: bold !important;
-      font-size: 20px !important;
+      font-size: 16px !important;
       text-decoration: none !important;
       color: var(--color-neutral-100, white) !important; 
-      padding: 0px 8px 4px 8px !important;
+      padding: 4px 6px !important;
       border-radius: 8px !important;
       transition: all 0.2s ease !important;
+    }
+
+    @media (min-width: 480px) {
+      #custom-top-nav .top-nav-arrow-hitbox {
+        font-size: 20px !important;
+        padding: 0px 8px 4px 8px !important;
+      }
     }
 
     #custom-top-nav .top-nav-arrow-hitbox:hover {
       transform: scale(1.05) !important;
     }
+
+    /* Core shared button settings */
+    #custom-top-nav .close-top-btn {
+      position: absolute !important;
+      background: none !important;
+      border: none !important;
+      color: #a3a3a3 !important;
+      cursor: pointer !important;
+      margin: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: color 0.2s ease, transform 0.2s ease !important;
+    }
+    #custom-top-nav .close-top-btn:hover {
+      color: #e5e5e5 !important;
+      transform: scale(1.05) !important;
+    }
+
+
+    /* ============================================================
+       THE MOBILE INTERACTION KNOBS (Screens SMALLER than 480px)
+       ============================================================ */
+    @media (max-width: 479px) {
+      #custom-top-nav .close-top-btn {
+        
+        /* ADJUST THESE TWO LINE CONFIGURATIONS BELOW FOR MOBILE */
+        right: -1.05rem !important;  /* Negative numbers push right, positive pulls left */
+        top: -1.9rem !important;     /* More negative pushes it up toward the top rim */
+        
+        font-size: 1.0rem !important; 
+        padding: 4px !important;
+      }
+    }
+
+
+    /* ============================================================
+       THE DESKTOP INTERACTION KNOBS (Screens WIDER than 480px)
+       ============================================================ */
+    @media (min-width: 480px) {
+      #custom-top-nav .close-top-btn {
+        
+        right: -2.6rem !important; 
+        top: -2.0rem !important;   
+        
+        font-size: 1rem !important;  
+        padding: 6px !important;
+      }
+    }
+
+    @media (min-width: 480px) {
+      #custom-top-nav .top-horizontal-nav {
+        /* Increases right padding from 1.5rem to 2.5rem, 
+           widening the glass card on the right side only */
+        padding-right: 2.8rem !important; 
+      }
+    }
+
   </style>
 
   <div class="top-horizontal-nav">
     <div class="top-nav-container">
       
-      <div class="top-nav-flex-row">
-        <a href="#about" class="nav-top-link">About Me</a>
-        <a href="#experience" class="nav-top-link">Experience</a>
-        <a href="#education" class="nav-top-link">Education</a>
-        <a href="#projects" class="nav-top-link">Projects</a>
-        <a href="#bottom" class="top-nav-arrow-hitbox">↓</a>
-      </div>
-
       <button 
         id="close-top-nav"
         class="close-top-btn"
@@ -115,13 +165,20 @@
         ✕
       </button>
 
+      <div class="top-nav-flex-row">
+        <a href="#about" class="nav-top-link">About Me</a>
+        <a href="#experience" class="nav-top-link">Experience</a>
+        <a href="#education" class="nav-top-link">Education</a>
+        <a href="#projects" class="nav-top-link">Projects</a>
+        <a href="#bottom" class="top-nav-arrow-hitbox">↓</a>
+      </div>
+
     </div>
   </div>
 </div>
 
 <script>
 (function () {
-  // Use a unified function to run initialization safely
   const initCustomNav = () => {
     const modal = document.getElementById("custom-top-nav");
     const closeBtn = document.getElementById("close-top-nav");
@@ -129,6 +186,7 @@
 
     let lastScrollY = window.scrollY;
     let isTrackingScroll = false;
+    let isNavigating = false; 
 
     function closeTopNav() {
       modal.classList.remove("opacity-100", "pointer-events-auto");
@@ -154,12 +212,13 @@
         lastScrollY = window.scrollY;
         setTimeout(() => {
           isTrackingScroll = true;
-        }, 200); // Slightly increased delay for mobile engine processing
+        }, 250); 
       }
     }
 
     function handleScrollClose() {
-      if (!modal.classList.contains("opacity-100") || !isTrackingScroll) return;
+      if (!modal.classList.contains("opacity-100") || !isTrackingScroll || isNavigating) return;
+      
       const currentScrollY = window.scrollY;
       const scrollDelta = Math.abs(currentScrollY - lastScrollY);
       if (scrollDelta > 150) {
@@ -167,29 +226,36 @@
       }
     }
 
-    // Unified Click & Touch Handler for opening and closing contextually
-    function handleTrigger(e) {
-      const nativeSearchBtn = e.target.closest('[data-action="search-modal"]') || 
-                             e.target.closest('#search-button') ||
-                             e.target.closest('.search-button');
+    const bindSearchButtons = () => {
+      const searchSelectors = [
+        '[data-action="search-modal"]',
+        '#search-button',
+        '.search-button',
+        '.search-toggle',
+        'button[aria-label="Search"]'
+      ];
+
+      searchSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(btn => {
+          if (btn.dataset.navBound) return; 
+          btn.addEventListener("click", toggleTopNav);
+          btn.addEventListener("touchstart", toggleTopNav, { passive: false });
+          btn.dataset.navBound = "true";
+        });
+      });
+    };
+
+    bindSearchButtons();
+    
+    document.addEventListener("click", (e) => {
+      if (!modal.classList.contains("opacity-100")) return;
+      const clickedInsideNav = e.target.closest('#custom-top-nav');
+      const clickedAButton = e.target.closest('[data-navBound="true"]');
       
-      if (nativeSearchBtn) {
-        toggleTopNav(e);
-        return;
+      if (!clickedInsideNav && !clickedAButton) {
+        closeTopNav();
       }
-
-      // If navigation is active and the event clicked completely outside of its element wrapper, shut it down
-      if (modal.classList.contains("opacity-100")) {
-        const clickedInsideNav = modal.contains(e.target);
-        if (!clickedInsideNav) {
-          closeTopNav();
-        }
-      }
-    }
-
-    // Bind both click and touchstart to intercept native mobile behavior instantly
-    document.addEventListener("click", handleTrigger, true);
-    document.addEventListener("touchstart", handleTrigger, { passive: false, capture: true });
+    }, true);
 
     if (closeBtn) {
       closeBtn.addEventListener("click", toggleTopNav);
@@ -197,15 +263,23 @@
     }
     
     modal.querySelectorAll('.nav-top-link, .top-nav-arrow-hitbox').forEach(link => {
-      const linkClose = () => setTimeout(closeTopNav, 120);
-      link.addEventListener('click', linkClose);
-      link.addEventListener('touchstart', linkClose, { passive: true });
+      const handleLinkNavigation = () => {
+        isNavigating = true; 
+        
+        setTimeout(() => {
+          closeTopNav();
+          isNavigating = false;
+        }, 400); 
+      };
+      link.addEventListener('click', handleLinkNavigation);
     });
 
     window.addEventListener("scroll", handleScrollClose, { passive: true });
+
+    const observer = new MutationObserver(bindSearchButtons);
+    observer.observe(document.body, { childList: true, subtree: true });
   };
 
-  // Run immediately and also bind to DOMContentLoaded to guarantee execution in Hugo environments
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initCustomNav);
   } else {
