@@ -121,7 +121,8 @@
 
 <script>
 (function () {
-  document.addEventListener("DOMContentLoaded", () => {
+  // Use a unified function to run initialization safely
+  const initCustomNav = () => {
     const modal = document.getElementById("custom-top-nav");
     const closeBtn = document.getElementById("close-top-nav");
     if (!modal) return;
@@ -150,48 +151,55 @@
         modal.classList.add("opacity-100", "pointer-events-auto");
         modal.style.transform = "translateY(0px)";
         
-        // Add a slight timeout hook before tracking scroll position to avoid mobile touch bounce closures
         lastScrollY = window.scrollY;
         setTimeout(() => {
           isTrackingScroll = true;
-        }, 150);
+        }, 200); // Slightly increased delay for mobile engine processing
       }
     }
 
     function handleScrollClose() {
       if (!modal.classList.contains("opacity-100") || !isTrackingScroll) return;
-
       const currentScrollY = window.scrollY;
       const scrollDelta = Math.abs(currentScrollY - lastScrollY);
-
-      // Relax threshold slightly for mobile drift
       if (scrollDelta > 150) {
         closeTopNav();
       }
     }
 
-    document.addEventListener("click", (e) => {
+    // Unified Click & Touch Handler for the Trigger Buttons
+    function handleTrigger(e) {
       const nativeSearchBtn = e.target.closest('[data-action="search-modal"]') || 
                              e.target.closest('#search-button') ||
                              e.target.closest('.search-button');
-                               
       if (nativeSearchBtn) {
         toggleTopNav(e);
       }
-    });
+    }
+
+    // Bind both click and touchstart to intercept native mobile behavior instantly
+    document.addEventListener("click", handleTrigger, true);
+    document.addEventListener("touchstart", handleTrigger, { passive: false, capture: true });
 
     if (closeBtn) {
       closeBtn.addEventListener("click", toggleTopNav);
+      closeBtn.addEventListener("touchstart", toggleTopNav, { passive: false });
     }
     
     modal.querySelectorAll('.nav-top-link, .top-nav-arrow-hitbox').forEach(link => {
-      link.addEventListener('click', () => {
-        // Allow navigation action to process smoothly before clearing display context
-        setTimeout(closeTopNav, 80);
-      });
+      const linkClose = () => setTimeout(closeTopNav, 120);
+      link.addEventListener('click', linkClose);
+      link.addEventListener('touchstart', linkClose, { passive: true });
     });
 
     window.addEventListener("scroll", handleScrollClose, { passive: true });
-  });
+  };
+
+  // Run immediately and also bind to DOMContentLoaded to guarantee execution in Hugo environments
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCustomNav);
+  } else {
+    initCustomNav();
+  }
 })();
 </script>
