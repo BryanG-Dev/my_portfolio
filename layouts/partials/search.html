@@ -167,13 +167,23 @@
       }
     }
 
-    // Unified Click & Touch Handler for the Trigger Buttons
+    // Unified Click & Touch Handler for opening and closing contextually
     function handleTrigger(e) {
       const nativeSearchBtn = e.target.closest('[data-action="search-modal"]') || 
                              e.target.closest('#search-button') ||
                              e.target.closest('.search-button');
+      
       if (nativeSearchBtn) {
         toggleTopNav(e);
+        return;
+      }
+
+      // If navigation is active and the event clicked completely outside of its element wrapper, shut it down
+      if (modal.classList.contains("opacity-100")) {
+        const clickedInsideNav = modal.contains(e.target);
+        if (!clickedInsideNav) {
+          closeTopNav();
+        }
       }
     }
 
