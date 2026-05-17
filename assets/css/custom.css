@@ -1,3 +1,8 @@
+:root {
+  --color-primary-500: 192, 132, 252;
+  --color-neutral-800: 21, 18, 26;
+}
+
 /* ===================================================== */
 /* FLOATING NAVIGATION (Centered & Balanced) */
 /* ===================================================== */
@@ -104,7 +109,7 @@
 /* 2. DARK MODE HOVER OVERRIDE (This swaps it to Blue) */
 .dark .toggle-btn:hover, 
 .dark .action-btn:not(.btn-linkedin):hover {
-  background: color-mix(in srgb, rgba(96, 165, 250, 0.2), currentColor 20%) !important;
+  background: color-mix(in srgb, rgba(89, 51, 132, 0.2), currentColor 20%) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
