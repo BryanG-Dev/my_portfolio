@@ -3,6 +3,7 @@
   --color-neutral-800: 21, 18, 26;
 }
 
+
 /* ===================================================== */
 /* FLOATING NAVIGATION (Centered & Balanced) */
 /* ===================================================== */
@@ -212,4 +213,43 @@ h1 a.anchor, h2 a.anchor, h3 a.anchor,
 h1 .heading-anchor, h2 .heading-anchor, h3 .heading-anchor,
 h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] { 
     display: none !important;
+}
+
+/* ===================================================== */
+/* TOP HORIZONTAL DROPDOWN NAV (Glass Theme-Matched)     */
+/* ===================================================== */
+.top-horizontal-nav {
+  margin-top: 10px;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  
+  /* Matched precisely to your existing floating-nav color & mix definitions */
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dark mode border softening to match your setup */
+.dark .top-horizontal-nav {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Link treatments matching your site's aesthetic */
+.nav-top-link {
+  color: var(--color-neutral-100, white) !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.nav-top-link:hover {
+  transform: scale(1.05) !important;
+  opacity: 0.8;
+}
+
+/* Initial hidden state off-screen slide adjustment */
+#search-modal {
+  transform: translateY(-20px);
+}
+#search-modal.opacity-100 {
+  transform: translateY(0);
 }

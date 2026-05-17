@@ -1,0 +1,192 @@
+<div 
+  id="custom-top-nav" 
+  class="pointer-events-none fixed inset-x-0 top-0 z- flex flex-col items-center justify-start opacity-0"
+  style="transform: translateY(-20px); transition: transform 0.3s ease-out, opacity 0.3s ease-out;"
+>
+  <style>
+    #custom-top-nav .top-horizontal-nav {
+      margin-top: 16px !important;
+      width: 100% !important;
+      max-width: 42rem !important; /* 2xl equivalent */
+      padding: 1.25rem 3rem 1.25rem 2rem !important;
+      border-radius: 14px !important;
+      backdrop-filter: blur(12px) !important;
+      background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .dark #custom-top-nav .top-horizontal-nav {
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    #custom-top-nav .top-nav-container {
+      position: relative !important;
+      width: 100% !important;
+    }
+
+    /* Standard flex row configuration with bulletproof fallback */
+    #custom-top-nav .top-nav-flex-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+    }
+
+    #custom-top-nav .nav-top-link {
+      color: var(--color-neutral-100, white) !important;
+      text-decoration: none !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em !important;
+      display: inline-block !important;
+      padding: 0px !important;
+      margin: 0 20px !important; /* Forces 40px gap between words */
+      white-space: nowrap !important;
+      transition: all 0.2s ease !important;
+    }
+
+    #custom-top-nav .nav-top-link:hover {
+      transform: scale(1.05) !important;
+      opacity: 0.85 !important;
+    }
+
+    #custom-top-nav .close-top-btn {
+      position: absolute !important;
+      right: -25px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      background: none !important;
+      border: none !important;
+      color: #a3a3a3 !important;
+      cursor: pointer !important;
+      font-size: 1.1rem !important;
+      padding: 5px !important;
+      transition: color 0.2s ease !important;
+    }
+
+    #custom-top-nav .close-top-btn:hover {
+      color: #e5e5e5 !important;
+    }
+
+    #custom-top-nav .top-nav-arrow-hitbox {
+    display: inline-block !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 25px !important;
+    text-decoration: none !important;
+        
+    /* Inherits your native white or theme color dynamically */
+    color: var(--color-neutral-100, white) !important; 
+        
+    /* Your exact wide invisible pill hitbox padding layout */
+    padding: 0px 20px 5px 20px !important;
+    border-radius: 8px !important;
+        
+    transition: all 0.2s ease !important;
+}
+
+/* Match the exact hover scaling behavior you use everywhere else */
+#custom-top-nav .top-nav-arrow-hitbox:hover {
+  transform: scale(1.05) !important;
+}
+  </style>
+
+  <div class="top-horizontal-nav mx-4">
+    <div class="top-nav-container">
+      
+     <div class="top-nav-flex-row">
+  <a href="#about" class="nav-top-link">About Me</a>
+  <a href="#experience" class="nav-top-link">Experience</a>
+  <a href="#education" class="nav-top-link">Education</a>
+  <a href="#projects" class="nav-top-link">Projects</a>
+  <a href="#bottom" class="top-nav-arrow-hitbox">↓</a>
+</div>
+
+      <button 
+        id="close-top-nav"
+        class="close-top-btn"
+        aria-label="Close Navigation"
+      >
+        ✕
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("custom-top-nav");
+    const closeBtn = document.getElementById("close-top-nav");
+    if (!modal) return;
+
+    let lastScrollY = window.scrollY;
+
+    // Direct close engine function
+    function closeTopNav() {
+      modal.classList.remove("opacity-100", "pointer-events-auto");
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modal.style.transform = "translateY(-20px)";
+    }
+
+    // Toggle execution function
+    function toggleTopNav(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      
+      const isOpen = modal.classList.contains("opacity-100");
+      if (isOpen) {
+        closeTopNav();
+      } else {
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100", "pointer-events-auto");
+        modal.style.transform = "translateY(0px)";
+        // Sync scroll tracking point right when opened
+        lastScrollY = window.scrollY;
+      }
+    }
+
+    // Active Scroll Auto-Close Listener
+    function handleScrollClose() {
+      if (!modal.classList.contains("opacity-100")) return;
+
+      const currentScrollY = window.scrollY;
+      const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+
+      // Dismiss the menu automatically if the user moves down or up past 60px distance
+      if (scrollDelta > 120) {
+        closeTopNav();
+      }
+    }
+
+    // Intercept clicking on the theme's header search elements
+    document.addEventListener("click", (e) => {
+      const nativeSearchBtn = e.target.closest('[data-action="search-modal"]') || 
+                             e.target.closest('#search-button') ||
+                             e.target.closest('.search-button');
+                             
+      if (nativeSearchBtn) {
+        toggleTopNav(e);
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", toggleTopNav);
+    }
+    
+    // Wire up links to close when clicked
+    modal.querySelectorAll('.nav-top-link').forEach(link => {
+      link.addEventListener('click', closeTopNav);
+    });
+
+    // Handle scroll interaction
+    window.addEventListener("scroll", handleScrollClose, { passive: true });
+  });
+})();
+</script>
