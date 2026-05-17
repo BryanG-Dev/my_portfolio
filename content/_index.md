@@ -12,24 +12,26 @@ My work has primarily focused on real-time interactive systems in game developme
 <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
 
 
-<div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+<div style="display: flex; justify-content: center; gap: 8px; flex-wrap: nowrap; width: 100%; box-sizing: border-box;">
+
   <!-- Resume Button -->
-  <a href="/resume/" target="_blank" class="action-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
-    <svg style="width: 1.25rem; height: 1.25rem; fill: currentColor;" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+  <a href="/resume/" target="_blank" class="action-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; text-decoration: none; white-space: nowrap;">
+    <svg style="width: 1.1rem; height: 1.1rem; fill: currentColor; flex-shrink: 0;" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
     <span>Resume</span>
   </a>
 
- <!-- Contact Me Button (Fixed to force open in a new tab) -->
-  <a href="mailto:bgbrrr@live.com?subject=Portfolio:" target="_blank" onclick="window.open(this.href); return false;" class="action-btn" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.5rem !important; text-decoration: none !important;">
-    <svg style="width: 1.25rem !important; height: 1.25rem !important; fill: currentColor !important; display: inline-block !important;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  <!-- Contact Me Button -->
+  <a href="mailto:bgbrrr@live.com?subject=Portfolio:" target="_blank" onclick="window.open(this.href); return false;" class="action-btn" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.4rem !important; text-decoration: none !important; white-space: nowrap !important;">
+    <svg style="width: 1.1rem !important; height: 1.1rem !important; fill: currentColor !important; display: inline-block !important; flex-shrink: 0;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     <span>Contact Me</span>
   </a>
 
-<!-- LinkedIn Button -->
-  <a href="https://www.linkedin.com/in/bryan-gonzalez-361a7b406/" target="_blank" class="action-btn btn-linkedin" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.5rem !important; text-decoration: none !important;">
-    <svg style="width: 1.25rem !important; height: 1.25rem !important; fill: currentColor !important; display: inline-block !important; vertical-align: middle !important;" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+  <!-- LinkedIn Button -->
+  <a href="https://www.linkedin.com/in/bryan-gonzalez-361a7b406/" target="_blank" class="action-btn btn-linkedin" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.4rem !important; text-decoration: none !important; white-space: nowrap !important;">
+    <svg style="width: 1.1rem !important; height: 1.1rem !important; fill: currentColor !important; display: inline-block !important; vertical-align: middle !important; flex-shrink: 0;" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
     <span>LinkedIn</span>
   </a>
+
 </div>
 
 </div>
