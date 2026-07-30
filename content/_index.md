@@ -130,7 +130,7 @@ My work has primarily focused on real-time interactive systems in game developme
 # Projects
 Check out some of my projects below:
 
-<!-- ---
+---
 
  ## Cosmic Cat
 
@@ -165,7 +165,7 @@ Check out some of my projects below:
 The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel feature.
 - Rebuilt presentation layer integrations (animations, UI flow, and audio cues) to align with the new theme without modifying core bonus architecture.
 </div>
-</div> -->
+</div> 
 
 ---
 
