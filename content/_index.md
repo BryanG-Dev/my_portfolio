@@ -333,7 +333,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 ## Pirates High Seas
 
 <video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
-  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/phs_faststart.mp4#t=0.001" type="video/mp4">
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/phs_faststart_fixed.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
