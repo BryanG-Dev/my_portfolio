@@ -137,7 +137,7 @@ Check out some of my projects below:
 
 ## Cosmic Cat
 
-<video id="vid-cchh" class="video-portrait" controls preload="none" poster="/images/previews/cchh.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-cchh" class="video-portrait" controls preload="none" poster="images/previews/cchh.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cchh_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -167,7 +167,7 @@ Check out some of my projects below:
 
 ## Epic Dragon
 
-<video id="vid-ed" class="video-portrait" controls preload="none" poster="/images/previews/ed.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-ed" class="video-portrait" controls preload="none" poster="images/previews/ed.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ed_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -197,7 +197,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Monster's Ball
 
-<video id="vid-mb" width="100%" controls preload="none" poster="/images/previews/mb.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-mb" width="100%" controls preload="none" poster="images/previews/mb.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/mb_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -228,7 +228,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Lotsa Dough
 
-<video id="vid-ld" class="video-portrait" controls preload="none" poster="/images/previews/ld.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-ld" class="video-portrait" controls preload="none" poster="images/previews/ld.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ld_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -257,7 +257,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Chasing the Storm
 
-<video id="vid-cts" class="video-portrait" controls preload="none" poster="/images/previews/cts.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-cts" class="video-portrait" controls preload="none" poster="images/previews/cts.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cts_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -288,7 +288,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## River of Prosperity
 
-<video id="vid-rop" class="video-portrait" controls preload="none" poster="/images/previews/rop.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-rop" class="video-portrait" controls preload="none" poster="images/previews/rop.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/rop_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -316,7 +316,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Piggy Pesos
 
-<video id="vid-pp" class="video-portrait" controls preload="none" poster="/images/previews/pp.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-pp" class="video-portrait" controls preload="none" poster="images/previews/pp.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/pp_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -343,7 +343,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Hooked
 
-<video id="vid-hkd" class="video-portrait" controls preload="none" poster="/images/previews/hkd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-hkd" class="video-portrait" controls preload="none" poster="images/previews/hkd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/hkd_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -372,7 +372,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Living Larger
 
-<video id="vid-llr" class="video-portrait" controls preload="none" poster="/images/previews/llr.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-llr" class="video-portrait" controls preload="none" poster="images/previews/llr.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/llr_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -401,7 +401,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Pirates High Seas
 
-<video id="vid-phs" class="video-portrait" controls preload="none" poster="/images/previews/phs.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-phs" class="video-portrait" controls preload="none" poster="images/previews/phs.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/phs_faststart_fixed.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -430,7 +430,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Ducks in a row
 
-<video id="vid-diar" width="100%" controls preload="none" poster="/images/previews/diar.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-diar" width="100%" controls preload="none" poster="images/previews/diar.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/diar_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -456,7 +456,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Snowday
 
-<video id="vid-sd" width="100%" controls preload="none" poster="/images/previews/sd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-sd" width="100%" controls preload="none" poster="images/previews/sd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/sd_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -485,7 +485,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Amigos Locos
 
-<video id="vid-al" width="100%" controls preload="none" poster="/images/previews/al.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-al" width="100%" controls preload="none" poster="images/previews/al.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/al_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
