@@ -82,6 +82,9 @@ My work has primarily focused on real-time interactive systems in game developme
 - Design and implement new bonus mechanics and gameplay systems with a focus on secure currency handling, state management, and data integrity.
 - Architect reusable game systems and bonus frameworks used as templates across multiple titles, supporting full session recovery and state continuity.
 - Optimize core game systems and resources for performance, stability, and reliability. Develop internal tools and  utility systems to support development efficiency and debugging, improving workflow and reducing manual overhead.
+- Developed and integrated a diagnostic USB export tool enabling cabinets to capture and transfer screenshots for QA testing.
+- Engineered and integrated a real-time on-screen FPS counter to track performance metrics across various game states.
+- Built internal file-management tools to streamline asset access and cache-clearing, speeding up development cycles.
 - Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
 - Translate and maintain critical in-game text and language localization assets.
 - Act as lead developer on multiple game projects, managing concurrent development efforts while training, onboarding, and supporting new developers.
