@@ -135,9 +135,9 @@ Check out some of my projects below:
 
 ---
 
- ## Cosmic Cat
+## Cosmic Cat
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-cchh" class="video-portrait" controls preload="none" poster="/images/previews/cchh.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cchh_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -149,6 +149,15 @@ Check out some of my projects below:
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-cchh', 11)"><span class="time">0:11</span> Bonus Start</button>
+    <button onclick="jumpTo('vid-cchh', 22)"><span class="time">0:22</span> PickEm</button>
+    <button onclick="jumpTo('vid-cchh', 57)"><span class="time">0:57</span> Bonus Plays</button>
+    <button onclick="jumpTo('vid-cchh', 124)"><span class="time">2:04</span> Wheel</button>
+    <button onclick="jumpTo('vid-cchh', 352)"><span class="time">5:52</span> Debug</button>
+  </div>
+
 - Designed and built a hybrid Pick’em and Bonus Plays system featuring an interactive wheel, implementing full state handling with internal debug support, gameplay logic, animation integration, and audio feedback.
 - Built robust bonus flow controls including player-driven skip/fast-forward functionality and full session recovery, enabling seamless continuation at any game state.
 </div>
@@ -158,7 +167,7 @@ Check out some of my projects below:
 
 ## Epic Dragon
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-ed" class="video-portrait" controls preload="none" poster="/images/previews/ed.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ed_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -170,6 +179,14 @@ Check out some of my projects below:
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-ed', 19)"><span class="time">0:19</span> Bonus Start</button>
+    <button onclick="jumpTo('vid-ed', 29)"><span class="time">0:29</span> PickEm</button>
+    <button onclick="jumpTo('vid-ed', 56)"><span class="time">0:56</span> Bonus Plays</button>
+    <button onclick="jumpTo('vid-ed', 186)"><span class="time">3:06</span> Wheel</button>
+  </div>
+
 - A reskinned version of Cosmic Cat. 
 The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel feature.
 - Rebuilt presentation layer integrations (animations, UI flow, and audio cues) to align with the new theme without modifying core bonus architecture.
@@ -180,7 +197,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Monster's Ball
 
-<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-mb" width="100%" controls preload="none" poster="/images/previews/mb.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/mb_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -192,6 +209,15 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-mb', 14)"><span class="time">0:14</span> Wheel </button>
+    <button onclick="jumpTo('vid-mb', 52)"><span class="time">0:52</span> Bonus Plays Intro</button>
+    <button onclick="jumpTo('vid-mb', 70)"><span class="time">1:10</span> Bonus Plays</button>
+    <button onclick="jumpTo('vid-mb', 152)"><span class="time">2:32</span> PickEm Intro</button>
+    <button onclick="jumpTo('vid-mb', 170)"><span class="time">2:50</span> PickEm</button>
+  </div>
+
 - Reskinned a version of a Wheel bonus capable of awarding all bonus features. Integrating the character plugin, full gameplay logic, animation flow, and audio feedback without modifying core architecture.
 - Architected the characters plugin to coordinate pseudo-random animations (solo/group) and event-triggered audio-visual feedback.
 - Designed and built the Pick’em bonus, implementing state handling with internal debugging, core gameplay logic and integrating animations and audio.
@@ -202,7 +228,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Lotsa Dough
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-ld" class="video-portrait" controls preload="none" poster="/images/previews/ld.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ld_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -212,6 +238,14 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 </button>
 
 <div class="project-details" style="text-align:left;">
+
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-ld', 13)"><span class="time">0:13</span> Bonus Plays </button>
+    <button onclick="jumpTo('vid-ld', 84)"><span class="time">1:24</span> Wheel </button>
+    <button onclick="jumpTo('vid-ld', 231)"><span class="time">3:51</span> Character Animations</button>
+    <button onclick="jumpTo('vid-ld', 264)"><span class="time">4:24</span> Debug</button>
+  </div>
 
 - Architected a state and event driven character plugin to drive pseudo-random character animations and event-triggered audio-visual feedback, enabling dynamic and responsive animations.
 - Designed and built the Wheel bonus system. Implemented state handling with internal debug support, core gameplay logic, and integration of animations and audio.
@@ -223,7 +257,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Chasing the Storm
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-cts" class="video-portrait" controls preload="none" poster="/images/previews/cts.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cts_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -234,6 +268,14 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 <div class="project-details">
 <div style="text-align:left;">
+
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-cts', 7)"><span class="time">0:07</span> Timer </button>
+    <button onclick="jumpTo('vid-cts', 22)"><span class="time">0:22</span> PickEm </button>
+    <button onclick="jumpTo('vid-cts', 70)"><span class="time">1:10</span> Bonus Plays</button>
+    <button onclick="jumpTo('vid-cts', 187)"><span class="time">3:07</span> Lock & Load</button>
+  </div>
 
 - Architected a parameter-driven customizable bonus timer system that tracks progression towards bonuses, enabling configurable behavior across multiple game contexts and enhancing anticipation through animation-driven feedback loops.
 - Extended an existing Pick’em system to support direct bonus entry by overriding selection state, improving pacing and matching new bonus direction.
@@ -246,7 +288,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## River of Prosperity
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-rop" class="video-portrait" controls preload="none" poster="/images/previews/rop.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/rop_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -258,6 +300,12 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-rop', 35)"><span class="time">0:35</span> PickEm </button>
+    <button onclick="jumpTo('vid-rop', 80)"><span class="time">1:20</span> Bonus Plays </button>
+  </div>
+
 - Architected a reusable pre-reveal template plugin in use in multiple games.  Provides visual cues for upcoming bonus outcomes. Enhanced player anticipation through animations.
 - Designed a fish patrol plugin to coordinate pseudo random fish animations and paths. Enhancing game themes and ambience.
 - Implemented a caustics water surface shader effect. Added touch interaction support, allowing players to drag across the water to generate ripples and disturbances on button or player input. Integrated with the Pick’em bonus to enhance feedback during fish selection events.
@@ -268,7 +316,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Piggy Pesos
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-pp" class="video-portrait" controls preload="none" poster="/images/previews/pp.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/pp_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -280,6 +328,12 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-pp', 210)"><span class="time">3:30</span> Bonus Plays </button>
+    <button onclick="jumpTo('vid-pp', 275)"><span class="time">4:35</span> PickEm </button>
+  </div>
+
 - Architected a state and event driven character plugin that maps player interactions and underlying game states, dynamically triggering responsive character and gameplay animations.
 - Built dedicated persistence systems for Pick’em and Bonus Plays bonuses integrated with the character plugin. Tracks player bonus progress and provides visual feedback across states.
 </div>
@@ -289,7 +343,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Hooked
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-hkd" class="video-portrait" controls preload="none" poster="/images/previews/hkd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/hkd_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -301,6 +355,13 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-hkd', 15)"><span class="time">0:15</span> Shaders </button>
+    <button onclick="jumpTo('vid-hkd', 60)"><span class="time">1:00</span> Bonus Plays </button>
+    <button onclick="jumpTo('vid-hkd', 133)"><span class="time">2:13</span> PickEm </button>
+  </div>
+
 - Designed and built the Pick’em bonus, implementing state handling, core gameplay logic and integrating animations and audio.
 - Extended gameplay functionality through scripting to build new features without altering core architecture.
 - Implemented godrays light and underwater ambience shader effects to create continuous “submerged” motion across game elements, combined with a dynamic water shader during Pick’em bonus to reinforce theme and enhance visual cohesion.
@@ -311,7 +372,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Living Larger
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-llr" class="video-portrait" controls preload="none" poster="/images/previews/llr.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/llr_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -323,6 +384,14 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-llr', 2)"><span class="time">0:02</span> Bonus Plays </button>
+    <button onclick="jumpTo('vid-llr', 78)"><span class="time">1:18</span> 1x PickEm </button>
+    <button onclick="jumpTo('vid-llr', 126)"><span class="time">2:06</span> 2x PickEm </button>
+    <button onclick="jumpTo('vid-llr', 195)"><span class="time">3:15</span> 3x PickEm </button>
+  </div>
+
 - Remastered and ported a legacy game from landscape to portrait orientation, adapting and enhancing bonus systems and integrating newly added Spine animation support while preserving core gameplay logic and backward compatibility.
 - Implemented scripted gameplay and UI enhancements to modernize presentation and extend functionality without modifying core architecture or destabilizing legacy systems.
 </div>
@@ -332,7 +401,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Pirates High Seas
 
-<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-phs" class="video-portrait" controls preload="none" poster="/images/previews/phs.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/phs_faststart_fixed.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -344,6 +413,13 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-phs', 9)"><span class="time">0:09</span> Bonus Plays </button>
+    <button onclick="jumpTo('vid-phs', 68)"><span class="time">1:08</span> Wheel </button>
+    <button onclick="jumpTo('vid-phs', 142)"><span class="time">2:22</span> PickEm </button>
+  </div>
+
 - Remastered and ported a legacy game from landscape to portrait orientation, adapting and enhancing bonus systems to new format while preserving core gameplay logic and backward compatibility.
 - Developed scripted gameplay visuals and UI enhancements to modernize presentation and extend functionality without modifying core architecture or destabilizing legacy systems.
 - Implemented simple shader-based environmental effects to enhance atmosphere and support bonus themes.
@@ -354,8 +430,8 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Ducks in a row
 
-<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
-  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/al_faststart.mp4#t=0.001" type="video/mp4">
+<video id="vid-diar" width="100%" controls preload="none" poster="/images/previews/diar.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/diar_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -366,6 +442,11 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-diar', 6)"><span class="time">0:06</span> PickEm </button>
+  </div>
+
 - Reworked a legacy bonus system through animation scripting to deliver a fully reskinned experience. Worked around existing bonus system limitations without modifying the underlying bonus class or core architecture.
 - Implemented dynamic water shader effect to enhance game presentation.
 </div>
@@ -375,7 +456,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Snowday
 
-<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-sd" width="100%" controls preload="none" poster="/images/previews/sd.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/sd_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -387,6 +468,14 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+  <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-sd', 3)"><span class="time">0:03</span> PickEm </button>
+    <button onclick="jumpTo('vid-sd', 30)"><span class="time">0:30</span> Wheel </button>
+    <button onclick="jumpTo('vid-sd', 87)"><span class="time">1:27</span> Bonus 
+    Plays </button>
+  </div>
+
 - Designed and implemented all bonus animations in collaboration with cross-functional art and development teams, delivering fully animated sequences through code and script integration.
 - Implemented a snowfall shader effect that intensifies during a specific bonus, reinforcing the winter theme and enhancing atmospheric presentation.
 </div>
@@ -396,7 +485,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Amigos Locos
 
-<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+<video id="vid-al" width="100%" controls preload="none" poster="/images/previews/al.png" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
   <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/al_faststart.mp4#t=0.001" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -408,6 +497,13 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 <div class="project-details">
 <div style="text-align:left;">
 
+ <!-- Chapter grid inside details -->
+  <div class="chapter-grid">
+    <button onclick="jumpTo('vid-al', 9)"><span class="time">0:09</span> Bonus 
+    Plays </button>
+    <button onclick="jumpTo('vid-al', 114)"><span class="time">1:54</span> PickEm </button>
+  </div>
+
 - Adapted existing bonus systems to support new visual theme, animations, and gameplay without modifying core architecture.
 - Recorded/sourced and integrated custom sound effects and audio.
 </div>
@@ -417,3 +513,32 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 <section id="bottom">
 </section>
+
+<script>
+  function jumpTo(id, seconds) {
+    const vid = document.getElementById(id);
+    if (!vid) {
+      console.error("Video element with ID '" + id + "' was not found.");
+      return;
+    }
+
+    // Force load if video is preloaded="none" and hasn't buffered yet
+    if (vid.readyState === 0) {
+      vid.load();
+    }
+
+    var playPromise = vid.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(function() {
+        vid.currentTime = seconds;
+      }).catch(function(error) {
+        vid.currentTime = seconds;
+        vid.play();
+      });
+    } else {
+      vid.currentTime = seconds;
+      vid.play();
+    }
+  }
+</script>

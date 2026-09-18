@@ -268,3 +268,92 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
     max-width: 260px; /* Mobile */
   }
 }
+
+
+/* ===================================================== */
+/* CHAPTER BUTTON GRID (Theme-Adaptive & Muted Accent)   */
+/* ===================================================== */
+.chapter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  
+  /* Top padding creates a safety buffer so translateY doesn't crop against overflow boundaries */
+  padding-top: 6px; 
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Light Mode Base Styles */
+.chapter-grid button {
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+  color: currentColor;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 4px 8px;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+
+  /* Promotes layer to GPU to prevent anti-aliasing artifacts on pill edges during hover */
+  will-change: transform;
+}
+
+.chapter-grid button:hover {
+  background: color-mix(in srgb, rgba(204, 212, 219, 0.5), currentColor 20%) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Timestamp Text (Desaturated Lavender Accent) */
+.chapter-grid .time {
+  color: #6b21a8;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* DARK MODE OVERRIDES */
+.dark .chapter-grid {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .chapter-grid button {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .chapter-grid button:hover {
+  background: color-mix(in srgb, rgba(89, 51, 132, 0.2), currentColor 20%) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+.dark .chapter-grid .time {
+  /* Soft, desaturated pastel lavender that pops cleanly on dark backgrounds */
+  color: #d8b4fe;
+}
+
+/* ===================================================== */
+/* UNIVERSAL VIDEO ROUNDING (HTML5 & Embed Wrappers)     */
+/* ===================================================== */
+video,
+.he-video,
+.youtube,
+[style*="aspect-ratio"] video {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  
+  /* Prevents WebKit/Safari control bar clipping bugs */
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+/* Ensures video frames inside container divs fill the rounded boundary */
+.he-video iframe,
+.youtube iframe {
+  border-radius: 14px !important;
+}
