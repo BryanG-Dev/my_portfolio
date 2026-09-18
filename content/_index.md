@@ -137,7 +137,10 @@ Check out some of my projects below:
 
  ## Cosmic Cat
 
-{{< youtube avH_dCBR-fM >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cchh_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -155,7 +158,10 @@ Check out some of my projects below:
 
 ## Epic Dragon
 
-{{< youtube u0BpJUB411A >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ed_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -174,7 +180,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Monster's Ball
 
-{{< youtube hRiNVUVWCuE >}}
+<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/mb_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -193,7 +202,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Lotsa Dough
 
-{{< youtube 0Vvd8P3OiLw >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/ld_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -211,7 +223,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Chasing the Storm
 
-{{< youtube bQ6LHRk3OYQ >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/cts_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -231,7 +246,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## River of Prosperity
 
-{{< youtube scAB7cncYl4 >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/rop_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -250,7 +268,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Piggy Pesos
 
-{{< youtube vyFwVHc26wU >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/pp_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -268,7 +289,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Hooked
 
-{{< youtube 0AkvZSoOgsc >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/hkd_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -287,7 +311,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Living Larger
 
-{{< youtube rw8FpXBUUA0 >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/llr_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -305,7 +332,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Pirates High Seas
 
-{{< youtube BeXUXtZ48SQ >}}
+<video class="video-portrait" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/phs_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -324,7 +354,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Ducks in a row
 
-{{< youtube npE6tqGGQpY >}}
+<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/al_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -342,7 +375,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Snowday
 
-{{< youtube 5nV4uVmR5tA >}}
+<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/sd_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details
@@ -360,7 +396,10 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
 
 ## Amigos Locos
 
-{{< youtube xzO3zgftuSM >}}
+<video width="100%" controls preload="metadata" onloadedmetadata="this.volume=0.2;" playsinline webkit-playsinline>
+  <source src="https://github.com/BryanG-Dev/my_portfolio/releases/download/v1.0.0/al_faststart.mp4#t=0.001" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <button class="toggle-btn" onclick="toggleDetails(this)">
   Show Details

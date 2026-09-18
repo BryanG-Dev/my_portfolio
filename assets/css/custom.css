@@ -253,3 +253,18 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 #search-modal.opacity-100 {
   transform: translateY(0);
 }
+
+.video-portrait {
+  max-width: 400px; /* Desktop */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Mobile viewport override */
+@media (max-width: 600px) {
+  .video-portrait {
+    max-width: 260px; /* Mobile */
+  }
+}
