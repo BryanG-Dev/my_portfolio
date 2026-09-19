@@ -57,6 +57,36 @@
     });
   }
 
+  function closeOtherDetailsForVideo(wrapper) {
+    let activeDetails = null;
+
+    let parent = wrapper.parentElement;
+    if (parent) {
+      const allDetails = Array.from(parent.querySelectorAll(".project-details"));
+      for (let d of allDetails) {
+        if (wrapper.compareDocumentPosition(d) & Node.DOCUMENT_POSITION_FOLLOWING) {
+          activeDetails = d;
+          break;
+        }
+      }
+    }
+
+    document.querySelectorAll(".project-details.open").forEach(details => {
+      if (details !== activeDetails) {
+        details.classList.remove("open");
+      }
+    });
+
+    document.querySelectorAll(".toggle-btn").forEach(btn => {
+      const details = btn.nextElementSibling;
+      if (!details || !details.classList.contains("project-details")) return;
+
+      if (!details.classList.contains("open")) {
+        btn.textContent = "Show Details";
+      }
+    });
+  }
+
   function hideAndLockNav() {
     nav.classList.remove("visible");
     isLocked = true;
@@ -106,22 +136,34 @@
       quad.addEventListener("click", handleActivation);
       video.addEventListener("click", handleActivation);
 
-      // Back to the original instant 'play' listener, now shielded by the scroll lock
       video.addEventListener("play", () => {
+        // 1. Pause any other playing videos on the page
+        document.querySelectorAll("video").forEach(otherVideo => {
+          if (otherVideo !== video && !otherVideo.paused) {
+            otherVideo.pause();
+          }
+        });
+
+        // 2. Close other project details
+        closeOtherDetailsForVideo(wrapper);
+
         activateNativeControls(wrapper);
         
         isAutoScrolling = true;
         
-        wrapper.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+        // 3. Matched to 150ms CSS transition for a brisk, stutter-free settle
+        setTimeout(() => {
+          wrapper.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 150);
 
         if (autoScrollTimeout) clearTimeout(autoScrollTimeout);
         autoScrollTimeout = setTimeout(() => {
           isAutoScrolling = false;
           lastInteractionY = window.scrollY; 
-        }, 1000);
+        }, 1150);
       });
 
       video.addEventListener("pause", () => quad.classList.remove("disabled"));
@@ -202,7 +244,7 @@
 
     const scrollDelta = Math.abs(current - lastInteractionY);
 
-    if (scrollDelta > 550 && !isAutoScrolling) {
+    if (scrollDelta > 450 && !isAutoScrolling) {
       if (document.querySelector(".project-details.open")) {
         closeAllDetails();
       }

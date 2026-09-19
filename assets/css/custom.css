@@ -3,7 +3,6 @@
   --color-neutral-800: 21, 18, 26;
 }
 
-
 /* ===================================================== */
 /* FLOATING NAVIGATION (Centered & Balanced) */
 /* ===================================================== */
@@ -15,7 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;    /* Centering Fixed */
+  align-items: center;
   text-align: center;
   padding: 12px;
   border-radius: 14px;
@@ -33,8 +32,7 @@
 
 /* DARK MODE OVERRIDE */
 .dark .floating-nav {
-    /* Keeps the same mix but softens the border for dark mode */
-   border-color: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 .floating-nav.visible {
@@ -47,8 +45,8 @@
   color: var(--color-neutral-100, white) !important;
   text-decoration: none;
   font-size: 0.9rem;
-  display: inline-block; /* Added to allow transform */
-  transition: all 0.2s ease; /* Added for smooth movement */
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
 .floating-nav a:hover {
@@ -63,7 +61,7 @@
   overflow: hidden;
   opacity: 0;
   margin-top: 0;
-  transition: max-height 0.25s ease, opacity 0.2s ease;
+  transition: max-height 0.15s ease, opacity 0.1s ease;
 }
 
 .project-details.open {
@@ -84,8 +82,6 @@
   cursor: pointer;
   font-size: 0.9rem;
   
-  /* DARK MODE: Vibrant Blue */
-  /* LIGHT MODE: Pulls 15% of the dark text color to darken the button slightly */
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: var(--color-neutral-100, white) !important; 
@@ -96,7 +92,6 @@
 /* DARK MODE OVERRIDE */
 .dark .toggle-btn,
 .dark .action-btn:not(.btn-linkedin){
-    /* Keeps the same mix but softens the border for dark mode */
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
@@ -107,7 +102,6 @@
   transform: translateY(-2px) !important;
 }
 
-/* 2. DARK MODE HOVER OVERRIDE (This swaps it to Blue) */
 .dark .toggle-btn:hover, 
 .dark .action-btn:not(.btn-linkedin):hover {
   background: color-mix(in srgb, rgba(89, 51, 132, 0.2), currentColor 20%) !important;
@@ -147,72 +141,43 @@
   pointer-events: none !important;
 }
 
-/* ===================================================== */
-/* REFINED YOUTUBE EMBED (16:9 Aspect Ratio & Rounding)  */
-/* ===================================================== */
-.he-video, 
-.youtube, 
-[style*="padding-bottom"] {
-    aspect-ratio: 16 / 9 !important; /* This changes the shape from the wide bar to a standard box */
-    padding-bottom: 0 !important;    /* This kills the extra space that creates green bars */
-    height: auto !important;
-    max-width: 850px;                /* Keeps it proportional on desktop */
-    margin: 20px auto !important;    /* Centers it and gives it space from the title */
-    border-radius: 18px !important;  /* Your preferred rounding */
-    overflow: hidden !important;
-}
-
-/* Ensure the iframe inside matches the new container shape */
-.he-video iframe, 
-.youtube iframe {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 18px !important;
-}
-
 /* Universal fix for the first element inside custom styled cards */
 .prose div[style*="background"] > :first-child {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Also tightens the gap for the Education section specifically if needed */
 #education div > :first-child {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Dynamic Glass Card - Matched to Idle Nav Color */
 .glass-card {
-    /* Top, Right, Bottom, Left */
-    padding: 0.8rem 1.5rem 1.5rem 1.5rem !important;
-    border-radius: 12px;
-    border: 1px solid;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(12px);
-    
-    /* UNIVERSAL COLOR LOGIC (Matched to Idle Nav) */
-    /* Changed 0.4 down to 0.15 to match the unhovered nav background */
-    background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 0.8rem 1.5rem 1.5rem 1.5rem !important;
+  border-radius: 12px;
+  border: 1px solid;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  
+  background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* DARK MODE OVERRIDE */
 .dark .glass-card {
-    /* Keeps the same mix but softens the border for dark mode */
-    border-color: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Maintain the "no-gap" top for titles inside cards */
 .glass-card > :first-child {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Hide # header  */
 h1 a.anchor, h2 a.anchor, h3 a.anchor,
 h1 .heading-anchor, h2 .heading-anchor, h3 .heading-anchor,
 h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] { 
-    display: none !important;
+  display: none !important;
 }
 
 /* ===================================================== */
@@ -222,18 +187,14 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   margin-top: 10px;
   border-radius: 14px;
   backdrop-filter: blur(12px);
-  
-  /* Matched precisely to your existing floating-nav color & mix definitions */
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Dark mode border softening to match your setup */
 .dark .top-horizontal-nav {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Link treatments matching your site's aesthetic */
 .nav-top-link {
   color: var(--color-neutral-100, white) !important;
   text-decoration: none;
@@ -246,29 +207,12 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   opacity: 0.8;
 }
 
-/* Initial hidden state off-screen slide adjustment */
 #search-modal {
   transform: translateY(-20px);
 }
 #search-modal.opacity-100 {
   transform: translateY(0);
 }
-
-.video-portrait {
-  max-width: 400px; /* Desktop */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-}
-
-/* Mobile viewport override */
-@media (max-width: 600px) {
-  .video-portrait {
-    max-width: 260px; /* Mobile */
-  }
-}
-
 
 /* ===================================================== */
 /* CHAPTER BUTTON GRID (Theme-Adaptive & Muted Accent)   */
@@ -279,14 +223,11 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   gap: 8px;
   justify-content: center;
   margin-bottom: 16px;
-  
-  /* Top padding creates a safety buffer so translateY doesn't crop against overflow boundaries */
   padding-top: 6px; 
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Light Mode Base Styles */
 .chapter-grid button {
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   color: currentColor;
@@ -300,8 +241,6 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   align-items: center;
   gap: 4px;
   white-space: nowrap;
-
-  /* Promotes layer to GPU to prevent anti-aliasing artifacts on pill edges during hover */
   will-change: transform;
 }
 
@@ -310,14 +249,12 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   transform: translateY(-2px) !important;
 }
 
-/* Timestamp Text (Desaturated Lavender Accent) */
 .chapter-grid .time {
   color: #6b21a8;
   font-family: monospace;
   font-weight: bold;
 }
 
-/* DARK MODE OVERRIDES */
 .dark .chapter-grid {
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
@@ -333,49 +270,50 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 .dark .chapter-grid .time {
-  /* Soft, desaturated pastel lavender that pops cleanly on dark backgrounds */
   color: #d8b4fe;
 }
 
 /* ===================================================== */
-/* UNIVERSAL VIDEO ROUNDING (HTML5 & Embed Wrappers)     */
+/* UNIVERSAL VIDEO ROUNDING (HTML5)                      */
 /* ===================================================== */
-video,
-.he-video,
-.youtube,
-[style*="aspect-ratio"] video {
+video {
   border-radius: 14px !important;
   overflow: hidden !important;
-  
   /* Prevents WebKit/Safari control bar clipping bugs */
   isolation: isolate;
   transform: translateZ(0);
 }
 
-/* Ensures video frames inside container divs fill the rounded boundary */
-.he-video iframe,
-.youtube iframe {
-  border-radius: 14px !important;
-}
-
-
 .video-wrapper {
   position: relative;
   width: 100%;
-  /* Fallback minimum height so it can never collapse to 0px */
   min-height: 250px; 
   background: transparent;
   overflow: hidden;
 }
 
-.video-wrapper video.video-portrait {
+/* Applies only to your vertical phone-recorded videos */
+.video-wrapper video.video-portrait,
+.video-portrait {
+  max-width: 400px;
   width: 100%;
   height: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
+  display: block;
+  margin: 1.5rem auto;
 }
 
-/* Solid, completely opaque play button centered perfectly */
+@media (max-width: 600px) {
+  .video-wrapper video.video-portrait,
+  .video-portrait {
+    max-width: 260px;
+  }
+}
+
+/* ===================================================== */
+/* CUSTOM PLAY BUTTON OVERLAY                            */
+/* ===================================================== */
 .video-touch-overlay {
   position: absolute;
   top: 50%;
@@ -386,7 +324,6 @@ video,
   height: 64px;
   border-radius: 50%;
   
-  /* Solid dark charcoal background */
   background: #1a1a1a; 
   color: #ffffff;
   
@@ -406,7 +343,7 @@ video,
 .video-touch-overlay svg {
   width: 50px;
   height: 50px;
-  margin-left: 0px; /* Optically centers the play triangle */
+  margin-left: 0px;
 }
 
 .video-touch-overlay:hover {
