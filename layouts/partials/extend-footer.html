@@ -78,6 +78,72 @@
     hideAndLockNav();
   }
 
+  // --- VIDEO QUAD LOGIC ---
+  function activateNativeControls(wrapper) {
+    hideAndLockNav();
+    lastInteractionY = window.scrollY; // Set interaction baseline on play
+
+    const quad = wrapper.querySelector(".video-touch-overlay");
+    if (quad) quad.classList.add("disabled");
+  }
+
+  // --- UPDATED VIDEO QUAD LOGIC ---
+  function initVideoQuads() {
+    document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+      const video = wrapper.querySelector("video");
+      const quad = wrapper.querySelector(".video-touch-overlay");
+
+      if (!video || !quad) return;
+
+      function handleActivation(e) {
+        if (!video.paused) return;
+        if (e) e.preventDefault();
+        activateNativeControls(wrapper);
+        video.play().catch(err => console.log("Playback error:", err));
+      }
+
+      // 1. Clicking the custom overlay button
+      quad.addEventListener("click", handleActivation);
+
+      // 2. Tapping anywhere directly on the video element itself
+      video.addEventListener("click", handleActivation);
+
+      // 3. THE MAGIC BULLET: Whenever the video starts playing for ANY reason 
+      // (native controls, API, etc.), instantly hide the quad.
+      video.addEventListener("play", () => {
+        activateNativeControls(wrapper);
+      });
+
+      // Native controls trigger pause -> bring quad back
+      video.addEventListener("pause", () => quad.classList.remove("disabled"));
+      video.addEventListener("ended", () => quad.classList.remove("disabled"));
+
+      // ChapterGrid buttons inside/associated with wrapper hide quad
+      const chapterButtons = wrapper.querySelectorAll(".chapter-btn, [data-timestamp]");
+      chapterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          activateNativeControls(wrapper);
+        });
+      });
+    });
+  }
+
+  // Global Quad & Video Reset on Scroll
+  function resetAllVideoQuads(autoPause = false) {
+    document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+      const video = wrapper.querySelector("video");
+      const quad = wrapper.querySelector(".video-touch-overlay");
+
+      // Re-enable touch quad overlay
+      if (quad) quad.classList.remove("disabled");
+
+      // Auto-pause playing video when scrolled out of range
+      if (autoPause && video && !video.paused) {
+        video.pause();
+      }
+    });
+  }
+
   // Bind direct touch/click handlers with debounce guard
   function initButtons() {
     document.querySelectorAll(".toggle-btn").forEach(btn => {
@@ -85,26 +151,27 @@
 
       const handlePress = function (e) {
         const now = Date.now();
-        if (now - lastTapTime < 300) return; // Prevent double execution
+        if (now - lastTapTime < 300) return;
         lastTapTime = now;
 
         toggleAccordion(btn);
       };
 
-      // Direct pointerdown for immediate touch execution on mobile
       btn.addEventListener("pointerdown", function (e) {
         if (e.pointerType === "touch") {
           handlePress(e);
         }
       });
 
-      // Standard click fallback for desktop / mouse
       btn.addEventListener("click", function (e) {
         if (e.pointerType !== "touch") {
           handlePress(e);
         }
       });
     });
+
+    // Initialize video quad listeners
+    initVideoQuads();
   }
 
   if (document.readyState === "loading") {
@@ -126,23 +193,25 @@
       }
     }
 
+   // Measure distance scrolled since last accordion or video tap
     const scrollDelta = Math.abs(current - lastInteractionY);
-    const openPanels = document.querySelector(".project-details.open");
 
-    if (delta > 0 && scrollDelta > 450 && openPanels) {
-      closeAllDetails();
+    // Trigger purely based on distance, regardless of scroll direction
+    if (scrollDelta > 450) {
+      // 1. Close open accordion panels
+      if (document.querySelector(".project-details.open")) {
+        closeAllDetails();
+      }
+
+      // 2. Reset quads and pause running videos independently of accordions
+      const disabledQuads = document.querySelectorAll(".video-touch-overlay.disabled");
+      if (disabledQuads.length > 0) {
+        resetAllVideoQuads(true);
+      }
     }
 
     lastScrollY = current;
   }
-
-  // Handle video taps
-  document.addEventListener("click", (e) => {
-    const videoEl = e.target.tagName === "VIDEO" || e.target.closest("video");
-    if (videoEl) {
-      hideAndLockNav();
-    }
-  });
 
   window.addEventListener("scroll", onScroll);
 })();

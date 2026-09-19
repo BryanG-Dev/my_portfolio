@@ -357,3 +357,55 @@ video,
 .youtube iframe {
   border-radius: 14px !important;
 }
+
+
+.video-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Solid, completely opaque play button centered perfectly */
+.video-touch-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  
+  /* Solid dark charcoal background */
+  background: #1a1a1a; 
+  color: #ffffff;
+  
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  z-index: 5;
+  cursor: pointer;
+  touch-action: manipulation;
+  
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-touch-overlay svg {
+  width: 50px;
+  height: 50px;
+  margin-left: 0px; /* Optically centers the play triangle */
+}
+
+.video-touch-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  background: #2a2a2a;
+}
+
+.video-touch-overlay.disabled {
+  display: none !important;
+}
