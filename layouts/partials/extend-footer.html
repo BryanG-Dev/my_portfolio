@@ -106,6 +106,34 @@
     if (details && details.classList.contains("project-details")) {
       const isOpen = details.classList.toggle("open");
       toggleBtn.textContent = isOpen ? "Hide Details" : "Show Details";
+
+      // Find the parent wrapper (e.g., .video-wrapper) to anchor the scroll
+      const wrapper = toggleBtn.closest(".video-wrapper");
+
+      isAutoScrolling = true;
+
+      // Match the 150ms delay used in your video play handler for consistency
+      setTimeout(() => {
+        if (isOpen) {
+          // Use 'nearest' block so it only scrolls if the details extend past the viewport
+          details.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+        } else if (wrapper) {
+          // Scroll back to center the video container when hiding details
+          wrapper.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }
+      }, 150);
+
+      if (autoScrollTimeout) clearTimeout(autoScrollTimeout);
+      autoScrollTimeout = setTimeout(() => {
+        isAutoScrolling = false;
+        lastInteractionY = window.scrollY; 
+      }, 1150);
     }
 
     hideAndLockNav();
