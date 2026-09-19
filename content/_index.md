@@ -158,6 +158,7 @@ Check out some of my projects below:
   <div class="chapter-grid">
     <button onclick="jumpTo('vid-cchh', 11)"><span class="time">0:11</span> Bonus Start</button>
     <button onclick="jumpTo('vid-cchh', 22)"><span class="time">0:22</span> PickEm</button>
+    <button onclick="jumpTo('vid-cchh', 40)"><span class="time">0:40</span> Animations</button>
     <button onclick="jumpTo('vid-cchh', 57)"><span class="time">0:57</span> Bonus Plays</button>
     <button onclick="jumpTo('vid-cchh', 124)"><span class="time">2:04</span> Wheel</button>
     <button onclick="jumpTo('vid-cchh', 352)"><span class="time">5:52</span> Debug</button>
@@ -263,7 +264,7 @@ The bonus combines Pick’em and Bonus Plays mechanics with an interactive wheel
   <div class="chapter-grid">
     <button onclick="jumpTo('vid-ld', 13)"><span class="time">0:13</span> Bonus Plays </button>
     <button onclick="jumpTo('vid-ld', 84)"><span class="time">1:24</span> Wheel </button>
-    <button onclick="jumpTo('vid-ld', 231)"><span class="time">3:51</span> Character Animations</button>
+    <button onclick="jumpTo('vid-ld', 231)"><span class="time">3:51</span> Animations</button>
     <button onclick="jumpTo('vid-ld', 264)"><span class="time">4:24</span> Debug</button>
   </div>
 
