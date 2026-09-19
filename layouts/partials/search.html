@@ -1,25 +1,32 @@
 <div 
   id="custom-top-nav" 
-  class="pointer-events-none fixed inset-x-0 top-0 z-50 flex flex-col items-center justify-start opacity-0"
-  style="transform: translateY(-20px); transition: transform 0.3s ease-out, opacity 0.3s ease-out;"
+  class="pointer-events-none fixed inset-x-0 top-0 z-50 flex flex-col items-center justify-start"
 >
   <style>
     #custom-top-nav .top-horizontal-nav {
       margin-top: 16px !important;
       width: calc(100% - 2rem) !important;
       max-width: 42rem !important;
-      
-      /* KNOB 1: Container padding (Shorthand: TOP RIGHT BOTTOM LEFT)
-        Increase that first '1.5rem' to '1.8rem' or '2rem' if you want 
-        to push the links further down away from the top edge.
-      */
       padding: 1.5rem 1.5rem 1rem 1.5rem !important; 
-      
       border-radius: 14px !important;
+      
+      /* The Blur & Color-Mix you wanted */
       backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
       background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+
+      /* Animation properties live directly on the glass card now so backdrop-filter works */
+      opacity: 0 !important;
+      transform: translateY(-20px) !important;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out !important;
+      will-change: transform, opacity, backdrop-filter !important;
+    }
+
+    #custom-top-nav.nav-is-open .top-horizontal-nav {
+      opacity: 1 !important;
+      transform: translateY(0px) !important;
     }
 
     .dark #custom-top-nav .top-horizontal-nav {
@@ -95,7 +102,6 @@
       transform: scale(1.05) !important;
     }
 
-    /* Core shared button settings */
     #custom-top-nav .close-top-btn {
       position: absolute !important;
       background: none !important;
@@ -113,45 +119,26 @@
       transform: scale(1.05) !important;
     }
 
-
-    /* ============================================================
-       THE MOBILE INTERACTION KNOBS (Screens SMALLER than 480px)
-       ============================================================ */
     @media (max-width: 479px) {
       #custom-top-nav .close-top-btn {
-        
-        /* ADJUST THESE TWO LINE CONFIGURATIONS BELOW FOR MOBILE */
-        right: -1.05rem !important;  /* Negative numbers push right, positive pulls left */
-        top: -1.9rem !important;     /* More negative pushes it up toward the top rim */
-        
+        right: -1.05rem !important; 
+        top: -1.9rem !important; 
         font-size: 1.0rem !important; 
         padding: 4px !important;
       }
     }
 
-
-    /* ============================================================
-       THE DESKTOP INTERACTION KNOBS (Screens WIDER than 480px)
-       ============================================================ */
     @media (min-width: 480px) {
       #custom-top-nav .close-top-btn {
-        
         right: -2.6rem !important; 
-        top: -2.0rem !important;   
-        
+        top: -2.0rem !important; 
         font-size: 1rem !important;  
         padding: 6px !important;
       }
-    }
-
-    @media (min-width: 480px) {
       #custom-top-nav .top-horizontal-nav {
-        /* Increases right padding from 1.5rem to 2.5rem, 
-           widening the glass card on the right side only */
         padding-right: 2.8rem !important; 
       }
     }
-
   </style>
 
   <div class="top-horizontal-nav">
@@ -189,9 +176,8 @@
     let isNavigating = false; 
 
     function closeTopNav() {
-      modal.classList.remove("opacity-100", "pointer-events-auto");
-      modal.classList.add("opacity-0", "pointer-events-none");
-      modal.style.transform = "translateY(-20px)";
+      modal.classList.remove("nav-is-open", "pointer-events-auto");
+      modal.classList.add("pointer-events-none");
       isTrackingScroll = false;
     }
 
@@ -201,13 +187,12 @@
         e.stopPropagation();
       }
       
-      const isOpen = modal.classList.contains("opacity-100");
+      const isOpen = modal.classList.contains("nav-is-open");
       if (isOpen) {
         closeTopNav();
       } else {
-        modal.classList.remove("opacity-0", "pointer-events-none");
-        modal.classList.add("opacity-100", "pointer-events-auto");
-        modal.style.transform = "translateY(0px)";
+        modal.classList.remove("pointer-events-none");
+        modal.classList.add("nav-is-open", "pointer-events-auto");
         
         lastScrollY = window.scrollY;
         setTimeout(() => {
@@ -217,7 +202,7 @@
     }
 
     function handleScrollClose() {
-      if (!modal.classList.contains("opacity-100") || !isTrackingScroll || isNavigating) return;
+      if (!modal.classList.contains("nav-is-open") || !isTrackingScroll || isNavigating) return;
       
       const currentScrollY = window.scrollY;
       const scrollDelta = Math.abs(currentScrollY - lastScrollY);
@@ -248,7 +233,7 @@
     bindSearchButtons();
     
     document.addEventListener("click", (e) => {
-      if (!modal.classList.contains("opacity-100")) return;
+      if (!modal.classList.contains("nav-is-open")) return;
       const clickedInsideNav = e.target.closest('#custom-top-nav');
       const clickedAButton = e.target.closest('[data-navBound="true"]');
       
