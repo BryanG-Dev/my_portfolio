@@ -1,5 +1,5 @@
 <div id="floating-nav" class="floating-nav">
- <a href="#top" style="
+  <a href="#" style="
     display: block;
     text-align: center;
     color: #333;
@@ -14,7 +14,7 @@
   <a href="#experience" style="touch-action: manipulation;">Experience</a>
   <a href="#education" style="touch-action: manipulation;">Education</a>
   <a href="#projects" style="touch-action: manipulation;">Projects</a>
-   <a href="#bottom" style="
+  <a href="#bottom" style="
     display: block;
     text-align: center;
     color: #333;
@@ -32,16 +32,19 @@
   const nav = document.getElementById("floating-nav");
   if (!nav) return;
 
-  const topArrow = nav.querySelector('a[href="#top"]');
+  const topArrow = nav.querySelector('a[href="#"]');
   if (topArrow) {
-    topArrow.addEventListener("pointerdown", function (e) {
+    const handleTopScroll = (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      history.pushState(null, null, ' ');
-    });
+      history.pushState(null, null, window.location.pathname);
+    };
+
+    topArrow.addEventListener("click", handleTopScroll);
+    topArrow.addEventListener("pointerdown", handleTopScroll);
   }
 
-  nav.querySelectorAll('a:not([href="#top"])').forEach(link => {
+  nav.querySelectorAll('a:not([href="#"])').forEach(link => {
     link.addEventListener("pointerdown", function(e) {
       const href = this.getAttribute('href');
       if (href && href.startsWith('#')) {
