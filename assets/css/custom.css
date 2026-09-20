@@ -22,6 +22,7 @@
   /* This blends the blue with a tiny bit of the current text color */
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 
   opacity: 0;
@@ -50,7 +51,7 @@
 }
 
 .floating-nav a:hover {
- transform: scale(1.05) !important;
+  transform: scale(1.05) !important;
 }
 
 /* ===================================================== */
@@ -160,6 +161,7 @@
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
@@ -187,6 +189,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   margin-top: 10px;
   border-radius: 14px;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
@@ -205,6 +208,65 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 .nav-top-link:hover {
   transform: scale(1.05) !important;
   opacity: 0.8;
+}
+
+#custom-top-nav {
+  position: fixed !important;
+  pointer-events: auto !important;
+}
+
+.nav-dropdown-wrapper {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+/* ===================================================== */
+/* DETACHED ROOT-LEVEL DROPDOWN (Real Backdrop Blur Fix) */
+/* ===================================================== */
+#detachedProjectDropdown {
+  position: fixed !important;
+  min-width: 210px !important;
+  border-radius: 12px !important;
+  padding: 8px !important;
+  
+  isolation: isolate !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+
+  z-index: 99999 !important;
+  display: none;
+  flex-direction: column !important;
+  gap: 4px !important;
+  pointer-events: auto !important;
+}
+
+.dark #detachedProjectDropdown {
+  background: rgba(20, 15, 30, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#detachedProjectDropdown .dropdown-item {
+  color: var(--color-neutral-100, white) !important;
+  text-decoration: none !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+}
+
+#detachedProjectDropdown .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ensure the horizontal nav and all links within it can receive hover/clicks */
+.top-horizontal-nav,
+.top-horizontal-nav *,
+#custom-top-nav .nav-dropdown-wrapper {
+  pointer-events: auto !important;
 }
 
 #search-modal {
@@ -274,7 +336,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 /* ===================================================== */
-/* UNIVERSAL VIDEO ROUNDING (HTML5)                      */
+/* UNIVERSAL VIDEO ROUNDING (HTML5)                    */
 /* ===================================================== */
 video {
   border-radius: 14px !important;
@@ -312,7 +374,7 @@ video {
 }
 
 /* ===================================================== */
-/* CUSTOM PLAY BUTTON OVERLAY                            */
+/* CUSTOM PLAY BUTTON OVERLAY                          */
 /* ===================================================== */
 .video-touch-overlay {
   position: absolute;

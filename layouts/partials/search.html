@@ -1,36 +1,44 @@
 <div 
   id="custom-top-nav" 
   class="pointer-events-none fixed inset-x-0 top-0 z-50 flex flex-col items-center justify-start"
+  style="height: 0; overflow: visible;"
 >
   <style>
+    /* SHARED GLASS PANEL STYLE FOR BOTH TOP NAV AND DROPDOWN */
+    #custom-top-nav .top-horizontal-nav,
+    #detachedProjectDropdown {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .dark #custom-top-nav .top-horizontal-nav,
+    .dark #detachedProjectDropdown {
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Top Nav Specifics */
     #custom-top-nav .top-horizontal-nav {
       margin-top: 16px !important;
       width: calc(100% - 2rem) !important;
       max-width: 42rem !important;
       padding: 1.5rem 1.5rem 1rem 1.5rem !important; 
       border-radius: 14px !important;
-      
-      /* The Blur & Color-Mix you wanted */
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-
-      /* Animation properties live directly on the glass card now so backdrop-filter works */
       opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
       transform: translateY(-20px) !important;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out !important;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out !important;
       will-change: transform, opacity, backdrop-filter !important;
     }
 
     #custom-top-nav.nav-is-open .top-horizontal-nav {
       opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
       transform: translateY(0px) !important;
-    }
-
-    .dark #custom-top-nav .top-horizontal-nav {
-      border-color: rgba(0, 0, 0, 0.1) !important;
     }
 
     #custom-top-nav .top-nav-container {
@@ -77,6 +85,11 @@
     #custom-top-nav .nav-top-link:hover {
       transform: scale(1.05) !important;
       opacity: 0.85 !important;
+    }
+
+    #custom-top-nav .nav-dropdown-wrapper {
+      position: relative !important;
+      display: inline-block !important;
     }
 
     #custom-top-nav .top-nav-arrow-hitbox {
@@ -141,134 +154,301 @@
     }
   </style>
 
+  <!-- TOP NAV CONTAINER -->
   <div class="top-horizontal-nav">
     <div class="top-nav-container">
-      
-      <button 
-        id="close-top-nav"
-        class="close-top-btn"
-        aria-label="Close Navigation"
-      >
-        ✕
-      </button>
+      <button id="close-top-nav" class="close-top-btn" aria-label="Close Navigation">✕</button>
 
       <div class="top-nav-flex-row">
         <a href="#about" class="nav-top-link">About Me</a>
         <a href="#experience" class="nav-top-link">Experience</a>
         <a href="#education" class="nav-top-link">Education</a>
-        <a href="#projects" class="nav-top-link">Projects</a>
-        <a href="#bottom" class="top-nav-arrow-hitbox">↓</a>
-      </div>
+        
+        <div class="nav-dropdown-wrapper">
+          <a href="#projects" class="nav-top-link" id="navProjectsTrigger">Projects</a>
+        </div>
 
+        <a href="#bottom" class="top-arrow-hitbox">↓</a>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- DETACHED ROOT-LEVEL DROPDOWN -->
+<div class="project-dropdown-menu" id="detachedProjectDropdown" style="position: fixed; z-index: 9999;">
+  <style>
+    #detachedProjectDropdown {
+      width: max-content !important;
+      min-width: 120px !important;
+      border-radius: 14px !important;
+      padding: 0px 5px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      isolation: isolate !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      
+      /* Smooth fade-out transition by default */
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(-8px) scale(0.97) !important;
+      transition: transform 0.15s ease-out, opacity 0.25s ease-out, visibility 0.25s ease-out !important;
+      will-change: transform, opacity, backdrop-filter !important;
+    }
+
+    #detachedProjectDropdown.dropdown-is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0px) scale(1) !important;
+    }
+
+    #detachedProjectDropdown .dropdown-item {
+      color: var(--color-neutral-100, white) !important;
+      text-decoration: none !important;
+      font-size: 0.85rem !important;
+      font-weight: 500 !important;
+      padding: 5px 6px !important;
+      border-radius: 8px !important;
+      white-space: nowrap !important;
+      text-align: center !important;
+      background: transparent !important;
+      transition: transform 0.15s ease, opacity 0.15s ease !important;
+    }
+    #detachedProjectDropdown .dropdown-item:hover {
+      background: transparent !important;
+      transform: scale(1.03) !important;
+      opacity: 0.85 !important;
+    }
+  </style>
+  <a href="#vid-cchh" class="dropdown-item">Cosmic Cat</a>
+  <a href="#vid-ed" class="dropdown-item">Epic Dragon</a>
+  <a href="#vid-mb" class="dropdown-item">Monster's Ball</a>
+  <a href="#vid-ld" class="dropdown-item">Lotsa Dough</a>
+  <a href="#vid-cts" class="dropdown-item">Chasing the Storm</a>
+  <a href="#vid-rop" class="dropdown-item">River of Prosperity</a>
+  <a href="#vid-pp" class="dropdown-item">Piggy Pesos</a>
+  <a href="#vid-hkd" class="dropdown-item">Hooked</a>
+  <a href="#vid-llr" class="dropdown-item">Living Larger</a>
+  <a href="#vid-phs" class="dropdown-item">Pirates High Seas</a>
+  <a href="#vid-diar" class="dropdown-item">Ducks in a row</a>
+  <a href="#vid-sd" class="dropdown-item">Snowday</a>
+  <a href="#vid-al" class="dropdown-item">Amigos Locos</a>
+</div>
+
 <script>
-(function () {
-  const initCustomNav = () => {
+document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("custom-top-nav");
+    const innerNav = modal ? modal.querySelector('.top-horizontal-nav') : null;
     const closeBtn = document.getElementById("close-top-nav");
-    if (!modal) return;
+    const trigger = document.getElementById('navProjectsTrigger');
+    const dropdown = document.getElementById('detachedProjectDropdown');
+
+    if (!modal || !innerNav || !trigger || !dropdown) return;
 
     let lastScrollY = window.scrollY;
     let isTrackingScroll = false;
-    let isNavigating = false; 
+    let isNavigating = false;
+    let isHoveringTrigger = false;
+    let isHoveringDropdown = false;
+    let hideTimeout;
 
     function closeTopNav() {
-      modal.classList.remove("nav-is-open", "pointer-events-auto");
-      modal.classList.add("pointer-events-none");
-      isTrackingScroll = false;
+        modal.classList.remove("nav-is-open", "pointer-events-auto");
+        modal.classList.add("pointer-events-none");
+        hideDropdown();
+        isTrackingScroll = false;
     }
 
-    function toggleTopNav(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      
-      const isOpen = modal.classList.contains("nav-is-open");
-      if (isOpen) {
-        closeTopNav();
-      } else {
+    function openTopNav() {
         modal.classList.remove("pointer-events-none");
         modal.classList.add("nav-is-open", "pointer-events-auto");
-        
         lastScrollY = window.scrollY;
         setTimeout(() => {
-          isTrackingScroll = true;
-        }, 250); 
-      }
+            isTrackingScroll = true;
+        }, 250);
+    }
+
+    function toggleTopNav() {
+        if (modal.classList.contains("nav-is-open")) {
+            closeTopNav();
+        } else {
+            openTopNav();
+        }
     }
 
     function handleScrollClose() {
-      if (!modal.classList.contains("nav-is-open") || !isTrackingScroll || isNavigating) return;
-      
-      const currentScrollY = window.scrollY;
-      const scrollDelta = Math.abs(currentScrollY - lastScrollY);
-      if (scrollDelta > 150) {
-        closeTopNav();
-      }
+        if (!modal.classList.contains("nav-is-open") || !isTrackingScroll || isNavigating) return;
+        if (Math.abs(window.scrollY - lastScrollY) > 150) {
+            closeTopNav();
+        }
     }
 
-    const bindSearchButtons = () => {
-      const searchSelectors = [
-        '[data-action="search-modal"]',
-        '#search-button',
-        '.search-button',
-        '.search-toggle',
-        'button[aria-label="Search"]'
-      ];
+    function positionDropdown() {
+        const rect = trigger.getBoundingClientRect();
+        const dropdownWidth = dropdown.offsetWidth;
+        
+        dropdown.style.setProperty('top', (rect.bottom + 4) + 'px', 'important');
+        dropdown.style.setProperty('left', (rect.left + (rect.width / 2) - (dropdownWidth / 2)) + 'px', 'important');
+    }
 
-      searchSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(btn => {
-          if (btn.dataset.navBound) return; 
-          btn.addEventListener("click", toggleTopNav);
-          btn.addEventListener("touchstart", toggleTopNav, { passive: false });
-          btn.dataset.navBound = "true";
+    function showDropdown() {
+        positionDropdown();
+        // Snap open instantly by temporarily disabling the transition
+        dropdown.style.transition = 'none';
+        dropdown.classList.add('dropdown-is-open');
+        
+        // Re-enable the transition immediately on the next frame so exit uses the fade-out
+        requestAnimationFrame(() => {
+            dropdown.style.transition = '';
         });
-      });
+    }
+
+    function hideDropdown() {
+        // Transition is active here, so removing the class triggers the smooth fade-out
+        dropdown.classList.remove('dropdown-is-open');
+    }
+
+    // Sync computed background/blur styles from top nav
+    const observer = new MutationObserver(() => {
+        if (dropdown.classList.contains('dropdown-is-open')) {
+            const computed = window.getComputedStyle(innerNav);
+            dropdown.style.setProperty('background', computed.background, 'important');
+            dropdown.style.setProperty('backdrop-filter', computed.backdropFilter, 'important');
+            dropdown.style.setProperty('-webkit-backdrop-filter', computed.webkitBackdropFilter, 'important');
+        }
+    });
+
+    observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
+
+    // Search button binding
+    const bindSearchButton = () => {
+        const searchSelectors = [
+            '[data-action="search-modal"]', 
+            '#search-button', 
+            '.search-button', 
+            '.search-toggle', 
+            'button[aria-label="Search"]'
+        ];
+
+        searchSelectors.forEach(selector => {
+            document.querySelectorAll(selector).forEach(btn => {
+                if (btn.dataset.navBound) return;
+                btn.addEventListener("click", () => {
+                    setTimeout(toggleTopNav, 10);
+                });
+                btn.dataset.navBound = "true";
+            });
+        });
     };
 
-    bindSearchButtons();
-    
+    bindSearchButton();
+    new MutationObserver(bindSearchButton).observe(document.body, { childList: true, subtree: true });
+
     document.addEventListener("click", (e) => {
-      if (!modal.classList.contains("nav-is-open")) return;
-      const clickedInsideNav = e.target.closest('#custom-top-nav');
-      const clickedAButton = e.target.closest('[data-navBound="true"]');
-      
-      if (!clickedInsideNav && !clickedAButton) {
-        closeTopNav();
-      }
+        if (!modal.classList.contains("nav-is-open")) return;
+        if (!e.target.closest('#custom-top-nav') && !e.target.closest('[data-navBound="true"]') && !e.target.closest('#detachedProjectDropdown')) {
+            closeTopNav();
+        }
     }, true);
 
     if (closeBtn) {
-      closeBtn.addEventListener("click", toggleTopNav);
-      closeBtn.addEventListener("touchstart", toggleTopNav, { passive: false });
+        closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            toggleTopNav();
+        });
+        closeBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            toggleTopNav();
+        }, { passive: false });
     }
-    
-    modal.querySelectorAll('.nav-top-link, .top-nav-arrow-hitbox').forEach(link => {
-      const handleLinkNavigation = () => {
-        isNavigating = true; 
-        
-        setTimeout(() => {
-          closeTopNav();
-          isNavigating = false;
-        }, 400); 
-      };
-      link.addEventListener('click', handleLinkNavigation);
+
+    // Dropdown hover & click management
+    function checkClose() {
+        hideTimeout = setTimeout(() => {
+            if (!isHoveringTrigger && !isHoveringDropdown) {
+                hideDropdown();
+            }
+        }, 200);
+    }
+
+    trigger.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+        isHoveringTrigger = true;
+        showDropdown();
+    });
+
+    trigger.addEventListener('mouseleave', () => {
+        isHoveringTrigger = false;
+        checkClose();
+    });
+
+    dropdown.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+        isHoveringDropdown = true;
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+        isHoveringDropdown = false;
+        checkClose();
+    });
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (dropdown.classList.contains('dropdown-is-open')) {
+            hideDropdown();
+        } else {
+            showDropdown();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (dropdown.classList.contains('dropdown-is-open')) {
+            positionDropdown();
+        }
+    });
+
+    // Navigation item clicks
+    modal.querySelectorAll('.nav-top-link, .top-arrow-hitbox').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this === trigger) return;
+            e.stopPropagation();
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    history.pushState(null, null, href);
+                }
+            }
+            isNavigating = true;
+            setTimeout(() => {
+                closeTopNav();
+                isNavigating = false;
+            }, 400);
+        });
+    });
+
+    dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    history.pushState(null, null, href);
+                }
+            }
+            closeTopNav();
+        });
     });
 
     window.addEventListener("scroll", handleScrollClose, { passive: true });
-
-    const observer = new MutationObserver(bindSearchButtons);
-    observer.observe(document.body, { childList: true, subtree: true });
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCustomNav);
-  } else {
-    initCustomNav();
-  }
-})();
+});
 </script>
