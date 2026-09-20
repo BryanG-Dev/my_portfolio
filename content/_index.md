@@ -81,14 +81,91 @@ My work has primarily focused on real-time interactive systems in game developme
 - Develop and maintain legally compliant Class II skill games, integrating gameplay, graphics, and audio systems in collaboration with cross-functional teams.
 - Design and implement new bonus mechanics and gameplay systems with a focus on secure currency handling, state management, and data integrity.
 - Architect reusable game systems and bonus frameworks used as templates across multiple titles, supporting full session recovery and state continuity.
-- Optimize core game systems and resources for performance, stability, and reliability. Develop internal tools and  utility systems to support development efficiency and debugging, improving workflow and reducing manual overhead.
-- Engineered and integrated a diagnostic USB export tool enabling cabinets to capture and transfer screenshots for QA testing.
-- Developed and integrated a real-time on-screen FPS counter to track performance metrics across various game states.
-- Built internal file-management tools to streamline asset access and cache-clearing, speeding up development cycles.
-- Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
-- Translate and maintain critical in-game text and language localization assets.
+- Optimize core game systems and resources for performance, stability, and reliability. Develop internal tools and utility systems to support development efficiency and debugging, improving workflow and reducing manual overhead.
 - Act as lead developer on multiple game projects, managing concurrent development efforts while training, onboarding, and supporting new developers.
 - Investigate, diagnose, and resolve system-level issues to ensure stability, performance, and reliability.
+
+<style>
+  .custom-accordion summary::-webkit-details-marker { display: none; }
+  .custom-accordion summary { list-style: none; }
+  .custom-accordion .arrow-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform: rotate(180deg); /* Starts pointing up */
+  }
+</style>
+
+<details class="custom-accordion mt-6 rounded-lg bg-neutral-75 dark:bg-neutral-800 p-4 border border-neutral-200 dark:border-neutral-700 transition-all">
+  <summary class="cursor-pointer font-semibold text-primary-600 dark:text-primary-400 select-none text-center" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 0.5rem;">
+    <span>Systems and Tool Overview</span>
+    <span class="arrow-icon">▼</span>
+  </summary>
+  
+  <div class="mt-4 space-y-3 text-sm text-neutral-600 dark:text-neutral-300 border-t border-neutral-200 dark:border-neutral-700 pt-3 text-left">
+     <div>
+      <strong class="text-neutral-800 dark:text-neutral-100">• Pre-Tell & Character Animation Systems:</strong> 
+      Developed multiple reusable animation and pre-tell frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
+    </div>
+   <div>
+      <strong class="text-neutral-800 dark:text-neutral-100">• Session Recovery Sytem:</strong> 
+      Built and Integrated a system that adds persistence hooks into core engine states, to enable developers to restore game completely on any main game interruption.
+    </div>
+    <div>
+      <strong class="text-neutral-800 dark:text-neutral-100">• English-to-Spanish Localization Sytem:</strong> 
+      Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
+    </div>
+    <div>
+      <strong class="text-neutral-800 dark:text-neutral-100">• Screenshot Capture Tool:</strong> 
+      Built a capture and export tool enabling engineers and QA to capture screenshots and transfer them via USB for testing and bug reporting on cabinets.
+    </div>
+    <div>
+      <strong class="text-neutral-800 dark:text-neutral-100">• On-screen FPS Utility:</strong> 
+      Built and integrated a real-time on-screen FPS counter to existing core systems to track performance metrics across all game states.
+    </div>
+<div>
+  <strong class="text-neutral-800 dark:text-neutral-100">• Developer Utility Tools:</strong> 
+  Extended an existing tester interface with quick-access utility buttons to streamline development cycles, eliminating multi-step menu navigation:
+  <ul class="list-disc list-inside mt-1 space-y-1">
+    <li>Quick access to game logs and cache file clearing</li>
+    <li>Configurable frame delay control to simulate low-frame conditions for animation and recovery testing</li>
+    <li>Autoplay toggles for streamlined testing</li>
+    <li>Currency/Points configuration swapping for register layouts</li>
+    <li>Localized text previewing for screen layouts</li>
+  </ul>
+</div>
+  </div>
+</details>
+
+<script>
+  (function() {
+    const details = document.currentScript.previousElementSibling;
+    const arrow = details.querySelector('.arrow-icon');
+    let rotation = 180;
+
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        // Opening: Sweeps clockwise from 180° to 360° (pointing down)
+        rotation = 360;
+        arrow.style.transition = 'transform 0.3s ease';
+        arrow.style.transform = `rotate(${rotation}deg)`;
+      } else {
+        // Closing: Sweeps further clockwise from 360° to 540° (pointing up)
+        rotation = 540;
+        arrow.style.transition = 'transform 0.3s ease';
+        arrow.style.transform = `rotate(${rotation}deg)`;
+
+        // The exact millisecond the close animation finishes, 
+        // invisibly snap back to 180° without a transition so it's ready for the next loop.
+        setTimeout(() => {
+          arrow.style.transition = 'none';
+          rotation = 180;
+          arrow.style.transform = `rotate(${rotation}deg)`;
+        }, 300);
+      }
+    });
+  })();
+</script>
+
 
 </div>
 </div>
