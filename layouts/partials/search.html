@@ -261,7 +261,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let isNavigating = false;
     let isHoveringTrigger = false;
     let isHoveringDropdown = false;
-    let hideTimeout;
+    let isHoveringNav = false;
+    let isHoveringSearchBtn = false;
+    let navHideTimeout;
+    let dropdownHideTimeout;
 
     function closeTopNav() {
         modal.classList.remove("nav-is-open", "pointer-events-auto");
@@ -277,14 +280,6 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             isTrackingScroll = true;
         }, 250);
-    }
-
-    function toggleTopNav() {
-        if (modal.classList.contains("nav-is-open")) {
-            closeTopNav();
-        } else {
-            openTopNav();
-        }
     }
 
     function handleScrollClose() {
@@ -327,7 +322,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
 
-    const bindSearchButton = () => {
+    // Bind hover to Search / Magnifying Glass buttons
+    const bindSearchHover = () => {
         const searchSelectors = [
             '[data-action="search-modal"]', 
             '#search-button', 
@@ -338,21 +334,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
         searchSelectors.forEach(selector => {
             document.querySelectorAll(selector).forEach(btn => {
-                if (btn.dataset.navBound) return;
-                btn.addEventListener("click", () => {
-                    setTimeout(toggleTopNav, 10);
+                if (btn.dataset.navHoverBound) return;
+
+                btn.addEventListener("mouseenter", () => {
+                    clearTimeout(navHideTimeout);
+                    isHoveringSearchBtn = true;
+                    openTopNav();
                 });
-                btn.dataset.navBound = "true";
+
+                btn.addEventListener("mouseleave", () => {
+                    isHoveringSearchBtn = false;
+                    checkNavClose();
+                });
+
+                btn.dataset.navHoverBound = "true";
             });
         });
     };
 
-    bindSearchButton();
-    new MutationObserver(bindSearchButton).observe(document.body, { childList: true, subtree: true });
+    bindSearchHover();
+    new MutationObserver(bindSearchHover).observe(document.body, { childList: true, subtree: true });
+
+    // Keep nav open if hovering inside the top nav panel itself
+    innerNav.addEventListener('mouseenter', () => {
+        clearTimeout(navHideTimeout);
+        isHoveringNav = true;
+    });
+
+    innerNav.addEventListener('mouseleave', () => {
+        isHoveringNav = false;
+        checkNavClose();
+    });
+
+    function checkNavClose() {
+        navHideTimeout = setTimeout(() => {
+            if (!isHoveringSearchBtn && !isHoveringNav && !isHoveringTrigger && !isHoveringDropdown) {
+                closeTopNav();
+            }
+        }, 200);
+    }
 
     document.addEventListener("click", (e) => {
         if (!modal.classList.contains("nav-is-open")) return;
-        if (!e.target.closest('#custom-top-nav') && !e.target.closest('[data-navBound="true"]') && !e.target.closest('#detachedProjectDropdown')) {
+        if (!e.target.closest('#custom-top-nav') && !e.target.closest('[data-navHoverBound="true"]') && !e.target.closest('#detachedProjectDropdown')) {
             closeTopNav();
         }
     }, true);
@@ -360,16 +384,16 @@ document.addEventListener("DOMContentLoaded", function() {
     if (closeBtn) {
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            toggleTopNav();
+            closeTopNav();
         });
         closeBtn.addEventListener("touchstart", (e) => {
             e.preventDefault();
-            toggleTopNav();
+            closeTopNav();
         }, { passive: false });
     }
 
-    function checkClose() {
-        hideTimeout = setTimeout(() => {
+    function checkDropdownClose() {
+        dropdownHideTimeout = setTimeout(() => {
             if (!isHoveringTrigger && !isHoveringDropdown) {
                 hideDropdown();
             }
@@ -377,29 +401,28 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     trigger.addEventListener('mouseenter', () => {
-        clearTimeout(hideTimeout);
+        clearTimeout(dropdownHideTimeout);
         isHoveringTrigger = true;
         showDropdown();
     });
 
     trigger.addEventListener('mouseleave', () => {
         isHoveringTrigger = false;
-        checkClose();
+        checkDropdownClose();
     });
 
     dropdown.addEventListener('mouseenter', () => {
-        clearTimeout(hideTimeout);
+        clearTimeout(dropdownHideTimeout);
         isHoveringDropdown = true;
     });
 
     dropdown.addEventListener('mouseleave', () => {
         isHoveringDropdown = false;
-        checkClose();
+        checkDropdownClose();
     });
 
     trigger.addEventListener('click', (e) => {
         const isOpen = dropdown.classList.contains('dropdown-is-open');
-        
         if (!isOpen) {
             e.preventDefault();
             showDropdown();
