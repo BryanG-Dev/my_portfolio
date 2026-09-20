@@ -19,7 +19,6 @@
   padding: 12px;
   border-radius: 14px;
 
-  /* This blends the blue with a tiny bit of the current text color */
   background: color-mix(in srgb, rgba(96, 165, 250, 0.05), currentColor 10%) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -31,7 +30,6 @@
   transition: 0.25s ease;
 }
 
-/* DARK MODE OVERRIDE */
 .dark .floating-nav {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
@@ -90,7 +88,6 @@
   transition: all 0.2s ease;
 }
 
-/* DARK MODE OVERRIDE */
 .dark .toggle-btn,
 .dark .action-btn:not(.btn-linkedin){
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -142,18 +139,15 @@
   pointer-events: none !important;
 }
 
-/* Universal fix for the first element inside custom styled cards */
 .prose div[style*="background"] > :first-child {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* Also tightens the gap for the Education section specifically if needed */
 #education div > :first-child {
   margin-top: 0 !important;
 }
 
-/* Dynamic Glass Card - Matched to Idle Nav Color */
 .glass-card {
   padding: 0.8rem 1.5rem 1.5rem 1.5rem !important;
   border-radius: 12px;
@@ -175,7 +169,6 @@
   margin-top: 0 !important;
 }
 
-/* Hide # header  */
 h1 a.anchor, h2 a.anchor, h3 a.anchor,
 h1 .heading-anchor, h2 .heading-anchor, h3 .heading-anchor,
 h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] { 
@@ -183,7 +176,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 /* ===================================================== */
-/* TOP HORIZONTAL DROPDOWN NAV (Glass Theme-Matched)     */
+/* TOP HORIZONTAL DROPDOWN NAV */
 /* ===================================================== */
 .top-horizontal-nav {
   margin-top: 10px;
@@ -221,7 +214,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 /* ===================================================== */
-/* DETACHED ROOT-LEVEL DROPDOWN (Real Backdrop Blur Fix) */
+/* DETACHED ROOT-LEVEL DROPDOWN */
 /* ===================================================== */
 #detachedProjectDropdown {
   position: fixed !important;
@@ -262,7 +255,6 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   background: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Ensure the horizontal nav and all links within it can receive hover/clicks */
 .top-horizontal-nav,
 .top-horizontal-nav *,
 #custom-top-nav .nav-dropdown-wrapper {
@@ -277,7 +269,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 /* ===================================================== */
-/* CHAPTER BUTTON GRID (Theme-Adaptive & Muted Accent)   */
+/* CHAPTER BUTTON GRID */
 /* ===================================================== */
 .chapter-grid {
   display: flex;
@@ -336,45 +328,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
 }
 
 /* ===================================================== */
-/* UNIVERSAL VIDEO ROUNDING (HTML5)                    */
-/* ===================================================== */
-video {
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  /* Prevents WebKit/Safari control bar clipping bugs */
-  isolation: isolate;
-  transform: translateZ(0);
-}
-
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 250px; 
-  background: transparent;
-  overflow: hidden;
-}
-
-/* Applies only to your vertical phone-recorded videos */
-.video-wrapper video.video-portrait,
-.video-portrait {
-  max-width: 400px;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  display: block;
-  margin: 1.5rem auto;
-}
-
-@media (max-width: 600px) {
-  .video-wrapper video.video-portrait,
-  .video-portrait {
-    max-width: 260px;
-  }
-}
-
-/* ===================================================== */
-/* CUSTOM PLAY BUTTON OVERLAY                          */
+/* CUSTOM PLAY BUTTON OVERLAY */
 /* ===================================================== */
 .video-touch-overlay {
   position: absolute;
@@ -415,4 +369,54 @@ video {
 
 .video-touch-overlay.disabled {
   display: none !important;
+}
+
+/* ===================================================== */
+/* VIDEO WRAPPER & RESPONSIVE SIZING ARCHITECTURE        */
+/* ===================================================== */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  overflow: hidden !important;
+  background-color: transparent; 
+  min-height: 0 !important;
+  isolation: isolate;
+}
+
+/* Portrait box hard-locked for desktop */
+.video-wrapper:has(.video-portrait) {
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+}
+
+/* Landscape box hard-locked for desktop */
+.video-wrapper:has(.video-landscape) {
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Forces the video to strictly fill the wrapper */
+.video-wrapper video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  display: block;
+  object-fit: cover !important;
+  border-radius: inherit;
+  margin: 0 !important; 
+}
+
+/* ===================================================== */
+/* MOBILE BEHAVIOR                                       */
+/* ===================================================== */
+@media (max-width: 600px) {
+  .video-wrapper:has(.video-portrait) {
+    max-width: 260px;
+  }
+  
+  .video-wrapper:has(.video-landscape) {
+    max-width: 100%;
+  }
 }

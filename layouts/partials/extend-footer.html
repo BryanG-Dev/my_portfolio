@@ -107,21 +107,17 @@
       const isOpen = details.classList.toggle("open");
       toggleBtn.textContent = isOpen ? "Hide Details" : "Show Details";
 
-      // Find the parent wrapper (e.g., .video-wrapper) to anchor the scroll
       const wrapper = toggleBtn.closest(".video-wrapper");
 
       isAutoScrolling = true;
 
-      // Match the 150ms delay used in your video play handler for consistency
       setTimeout(() => {
         if (isOpen) {
-          // Use 'nearest' block so it only scrolls if the details extend past the viewport
           details.scrollIntoView({
             behavior: "smooth",
             block: "nearest"
           });
         } else if (wrapper) {
-          // Scroll back to center the video container when hiding details
           wrapper.scrollIntoView({
             behavior: "smooth",
             block: "center"
@@ -154,32 +150,36 @@
 
       if (!video || !quad) return;
 
+      let lastPauseTime = 0; // Tracks when a native pause happens
+
       function handleActivation(e) {
         if (!video.paused) return;
+        
+        // Prevents the "pause loop" bug on mobile by ignoring clicks immediately after a native pause
+        if (Date.now() - lastPauseTime < 400) return; 
+
         if (e) e.preventDefault();
+        
+        video.volume = 0.2; // Volume control moved here safely
         activateNativeControls(wrapper);
         video.play().catch(err => console.log("Playback error:", err));
       }
 
       quad.addEventListener("click", handleActivation);
-      video.addEventListener("click", handleActivation);
+      video.addEventListener("click", handleActivation); // Touch anywhere is restored and safe
 
       video.addEventListener("play", () => {
-        // 1. Pause any other playing videos on the page
         document.querySelectorAll("video").forEach(otherVideo => {
           if (otherVideo !== video && !otherVideo.paused) {
             otherVideo.pause();
           }
         });
 
-        // 2. Close other project details
         closeOtherDetailsForVideo(wrapper);
-
         activateNativeControls(wrapper);
         
         isAutoScrolling = true;
         
-        // 3. Matched to 150ms CSS transition for a brisk, stutter-free settle
         setTimeout(() => {
           wrapper.scrollIntoView({
             behavior: "smooth",
@@ -194,7 +194,11 @@
         }, 1150);
       });
 
-      video.addEventListener("pause", () => quad.classList.remove("disabled"));
+      video.addEventListener("pause", () => {
+        quad.classList.remove("disabled");
+        lastPauseTime = Date.now(); // Records the timestamp to stop the loop
+      });
+      
       video.addEventListener("ended", () => quad.classList.remove("disabled"));
 
       const chapterButtons = wrapper.querySelectorAll(".chapter-btn, [data-timestamp]");
@@ -288,4 +292,28 @@
 
   window.addEventListener("scroll", onScroll);
 })();
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      const video = wrapper.querySelector('video');
+      const posterUrl = video.getAttribute('poster');
+
+      if (posterUrl && wrapper) {
+        wrapper.style.backgroundImage = `url('${posterUrl}')`;
+        wrapper.style.backgroundSize = 'cover'; 
+        wrapper.style.backgroundPosition = 'center';
+        wrapper.style.backgroundRepeat = 'no-repeat';
+
+        video.style.opacity = '0';
+        video.style.transition = 'opacity 0.2s ease';
+
+        video.addEventListener('play', () => {
+          wrapper.style.backgroundImage = 'none';
+          video.style.opacity = '1';
+        }, { once: true });
+      }
+    });
+  });
 </script>
