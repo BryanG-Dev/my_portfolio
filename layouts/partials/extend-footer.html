@@ -8,11 +8,12 @@
     font-weight: bold;
     font-size: 25px;
     padding: 5px 20px 0px 20px;
+    touch-action: manipulation;
 ">↑</a>
-  <a href="#about">About Me</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-  <a href="#projects">Projects</a>
+  <a href="#about" style="touch-action: manipulation;">About Me</a>
+  <a href="#experience" style="touch-action: manipulation;">Experience</a>
+  <a href="#education" style="touch-action: manipulation;">Education</a>
+  <a href="#projects" style="touch-action: manipulation;">Projects</a>
    <a href="#bottom" style="
     display: block;
     text-align: center;
@@ -22,6 +23,7 @@
     font-weight: bold;
     font-size: 25px;
     padding: 0px 20px 5px 20px;
+    touch-action: manipulation;
 ">↓</a>
 </div>
 
@@ -32,12 +34,26 @@
 
   const topArrow = nav.querySelector('a[href="#top"]');
   if (topArrow) {
-    topArrow.addEventListener("click", function (e) {
+    topArrow.addEventListener("pointerdown", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.pushState(null, null, ' ');
     });
   }
+
+  nav.querySelectorAll('a:not([href="#top"])').forEach(link => {
+    link.addEventListener("pointerdown", function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, href);
+        }
+      }
+    });
+  });
 
   let lastScrollY = window.scrollY;
   let lastInteractionY = window.scrollY;

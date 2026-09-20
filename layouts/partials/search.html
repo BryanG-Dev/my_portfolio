@@ -73,6 +73,7 @@
       margin: 0 !important; 
       white-space: nowrap !important;
       transition: all 0.2s ease !important;
+      touch-action: manipulation !important;
     }
 
     @media (min-width: 480px) {
@@ -102,6 +103,7 @@
       padding: 4px 6px !important;
       border-radius: 8px !important;
       transition: all 0.2s ease !important;
+      touch-action: manipulation !important;
     }
 
     @media (min-width: 480px) {
@@ -126,6 +128,7 @@
       align-items: center !important;
       justify-content: center !important;
       transition: color 0.2s ease, transform 0.2s ease !important;
+      touch-action: manipulation !important;
     }
     #custom-top-nav .close-top-btn:hover {
       color: #e5e5e5 !important;
@@ -224,6 +227,7 @@
       text-align: center !important;
       background: transparent !important;
       transition: transform 0.15s ease, opacity 0.15s ease !important;
+      touch-action: manipulation !important;
     }
     #detachedProjectDropdown .dropdown-item:hover {
       background: transparent !important;
@@ -258,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let lastScrollY = window.scrollY;
     let isTrackingScroll = false;
-    let isNavigating = false;
     let isHoveringTrigger = false;
     let isHoveringDropdown = false;
     let isHoveringNav = false;
@@ -283,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function handleScrollClose() {
-        if (!modal.classList.contains("nav-is-open") || !isTrackingScroll || isNavigating) return;
+        if (!modal.classList.contains("nav-is-open") || !isTrackingScroll) return;
         if (Math.abs(window.scrollY - lastScrollY) > 150) {
             closeTopNav();
         }
@@ -335,6 +338,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelectorAll(selector).forEach(btn => {
                 if (btn.dataset.navHoverBound) return;
 
+                // Handle desktop hover
                 btn.addEventListener("mouseenter", () => {
                     clearTimeout(navHideTimeout);
                     isHoveringSearchBtn = true;
@@ -344,6 +348,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 btn.addEventListener("mouseleave", () => {
                     isHoveringSearchBtn = false;
                     checkNavClose();
+                });
+
+                // Handle mobile touch/click reliably without race conditions
+                btn.addEventListener("pointerdown", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    clearTimeout(navHideTimeout);
+                    if (modal.classList.contains("nav-is-open")) {
+                        closeTopNav();
+                    } else {
+                        openTopNav();
+                    }
                 });
 
                 btn.dataset.navHoverBound = "true";
@@ -373,7 +389,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (closeBtn) {
-        closeBtn.addEventListener("click", (e) => {
+        closeBtn.addEventListener("pointerdown", (e) => {
             e.preventDefault();
             closeTopNav();
         });
@@ -408,13 +424,13 @@ document.addEventListener("DOMContentLoaded", function() {
         checkDropdownClose();
     });
 
-    trigger.addEventListener('click', (e) => {
+    trigger.addEventListener('pointerdown', (e) => {
         const isOpen = dropdown.classList.contains('dropdown-is-open');
+        e.preventDefault();
+        e.stopPropagation();
         if (!isOpen) {
-            e.preventDefault();
             showDropdown();
         } else {
-            e.preventDefault();
             const href = trigger.getAttribute('href');
             if (href && href.startsWith('#')) {
                 const target = document.querySelector(href);
@@ -423,11 +439,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     history.pushState(null, null, href);
                 }
             }
-            isNavigating = true;
-            setTimeout(() => {
-                closeTopNav();
-                isNavigating = false;
-            }, 400);
+            closeTopNav();
         }
     });
 
@@ -439,31 +451,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     modal.querySelectorAll('.nav-top-link, .top-arrow-hitbox').forEach(link => {
         if (link === trigger) return; 
-        link.addEventListener('click', function(e) {
+        link.addEventListener('pointerdown', function(e) {
             e.stopPropagation();
+            e.preventDefault();
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
-                e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     history.pushState(null, null, href);
                 }
             }
-            isNavigating = true;
-            setTimeout(() => {
-                closeTopNav();
-                isNavigating = false;
-            }, 400);
+            closeTopNav();
         });
     });
 
     dropdown.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function(e) {
+        item.addEventListener('pointerdown', function(e) {
             e.stopPropagation();
+            e.preventDefault();
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
-                e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'center' });
