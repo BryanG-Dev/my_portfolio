@@ -195,7 +195,7 @@
       visibility: hidden !important;
       pointer-events: none !important;
       transform: translateY(-8px) scale(0.97) !important;
-      transition: transform 0.15s ease-out, opacity 0.25s ease-out, visibility 0.25s ease-out !important;
+      transition: transform 0.25s ease-out, opacity 0.25s ease-out, visibility 0.25s ease-out !important;
       will-change: transform, opacity, backdrop-filter !important;
     }
 
@@ -297,22 +297,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showDropdown() {
         positionDropdown();
-        // Snap open instantly by temporarily disabling the transition
         dropdown.style.transition = 'none';
         dropdown.classList.add('dropdown-is-open');
         
-        // Re-enable the transition immediately on the next frame so exit uses the fade-out
         requestAnimationFrame(() => {
             dropdown.style.transition = '';
         });
     }
 
     function hideDropdown() {
-        // Transition is active here, so removing the class triggers the smooth fade-out
         dropdown.classList.remove('dropdown-is-open');
     }
 
-    // Sync computed background/blur styles from top nav
     const observer = new MutationObserver(() => {
         if (dropdown.classList.contains('dropdown-is-open')) {
             const computed = window.getComputedStyle(innerNav);
@@ -324,7 +320,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
 
-    // Search button binding
     const bindSearchButton = () => {
         const searchSelectors = [
             '[data-action="search-modal"]', 
@@ -366,7 +361,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }, { passive: false });
     }
 
-    // Dropdown hover & click management
     function checkClose() {
         hideTimeout = setTimeout(() => {
             if (!isHoveringTrigger && !isHoveringDropdown) {
@@ -411,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Navigation item clicks
+    // Navigation item clicks (Centered Viewport Scrolling)
     modal.querySelectorAll('.nav-top-link, .top-arrow-hitbox').forEach(link => {
         link.addEventListener('click', function(e) {
             if (this === trigger) return;
@@ -421,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     history.pushState(null, null, href);
                 }
             }
@@ -433,6 +427,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Dropdown project items click (Centered Viewport Scrolling without playing video)
     dropdown.querySelectorAll('.dropdown-item').forEach(item => {
         item.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -441,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     history.pushState(null, null, href);
                 }
             }
