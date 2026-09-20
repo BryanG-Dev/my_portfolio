@@ -152,6 +152,14 @@
         padding-right: 2.8rem !important; 
       }
     }
+
+    /* BREATHING ROOM ABOVE SECTIONS WHEN SCROLLING */
+    #about, 
+    #experience, 
+    #education, 
+    #projects {
+      scroll-margin-top: 100px !important;
+    }
   </style>
 
   <!-- TOP NAV CONTAINER -->
@@ -391,11 +399,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (dropdown.classList.contains('dropdown-is-open')) {
-            hideDropdown();
-        } else {
+        const isOpen = dropdown.classList.contains('dropdown-is-open');
+        
+        if (!isOpen) {
+            e.preventDefault();
             showDropdown();
+        } else {
+            e.preventDefault();
+            const href = trigger.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.pushState(null, null, href);
+                }
+            }
+            isNavigating = true;
+            setTimeout(() => {
+                closeTopNav();
+                isNavigating = false;
+            }, 400);
         }
     });
 
@@ -405,17 +428,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Navigation item clicks (Centered Viewport Scrolling)
     modal.querySelectorAll('.nav-top-link, .top-arrow-hitbox').forEach(link => {
+        if (link === trigger) return; 
         link.addEventListener('click', function(e) {
-            if (this === trigger) return;
             e.stopPropagation();
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     history.pushState(null, null, href);
                 }
             }
@@ -427,7 +449,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Dropdown project items click (Centered Viewport Scrolling without playing video)
     dropdown.querySelectorAll('.dropdown-item').forEach(item => {
         item.addEventListener('click', function(e) {
             e.stopPropagation();
