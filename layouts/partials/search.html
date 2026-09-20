@@ -24,7 +24,7 @@
       margin-top: 16px !important;
       width: calc(100% - 2rem) !important;
       max-width: 42rem !important;
-      padding: 1.5rem 1.5rem 1rem 1.5rem !important; 
+      padding: 1.5rem 1.5rem 1.0rem 1.5rem !important; 
       border-radius: 14px !important;
       opacity: 0 !important;
       visibility: hidden !important;
@@ -92,7 +92,7 @@
       display: inline-block !important;
     }
 
-    #custom-top-nav .top-nav-arrow-hitbox {
+    #custom-top-nav .top-arrow-hitbox {
       display: inline-block !important;
       text-align: center !important;
       font-weight: bold !important;
@@ -105,13 +105,13 @@
     }
 
     @media (min-width: 480px) {
-      #custom-top-nav .top-nav-arrow-hitbox {
+      #custom-top-nav .top-arrow-hitbox {
         font-size: 20px !important;
         padding: 0px 8px 4px 8px !important;
       }
     }
 
-    #custom-top-nav .top-nav-arrow-hitbox:hover {
+    #custom-top-nav .top-arrow-hitbox:hover {
       transform: scale(1.05) !important;
     }
 
@@ -322,7 +322,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
 
-    // Bind hover to Search / Magnifying Glass buttons
     const bindSearchHover = () => {
         const searchSelectors = [
             '[data-action="search-modal"]', 
@@ -355,7 +354,6 @@ document.addEventListener("DOMContentLoaded", function() {
     bindSearchHover();
     new MutationObserver(bindSearchHover).observe(document.body, { childList: true, subtree: true });
 
-    // Keep nav open if hovering inside the top nav panel itself
     innerNav.addEventListener('mouseenter', () => {
         clearTimeout(navHideTimeout);
         isHoveringNav = true;
@@ -374,22 +372,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 200);
     }
 
-    document.addEventListener("click", (e) => {
-        if (!modal.classList.contains("nav-is-open")) return;
-        if (!e.target.closest('#custom-top-nav') && !e.target.closest('[data-navHoverBound="true"]') && !e.target.closest('#detachedProjectDropdown')) {
-            closeTopNav();
-        }
-    }, true);
-
     if (closeBtn) {
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
             closeTopNav();
         });
-        closeBtn.addEventListener("touchstart", (e) => {
-            e.preventDefault();
-            closeTopNav();
-        }, { passive: false });
     }
 
     function checkDropdownClose() {

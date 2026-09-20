@@ -30,6 +30,15 @@
   const nav = document.getElementById("floating-nav");
   if (!nav) return;
 
+  const topArrow = nav.querySelector('a[href="#top"]');
+  if (topArrow) {
+    topArrow.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.pushState(null, null, ' ');
+    });
+  }
+
   let lastScrollY = window.scrollY;
   let lastInteractionY = window.scrollY;
 
@@ -150,23 +159,22 @@
 
       if (!video || !quad) return;
 
-      let lastPauseTime = 0; // Tracks when a native pause happens
+      let lastPauseTime = 0; 
 
       function handleActivation(e) {
         if (!video.paused) return;
         
-        // Prevents the "pause loop" bug on mobile by ignoring clicks immediately after a native pause
         if (Date.now() - lastPauseTime < 400) return; 
 
         if (e) e.preventDefault();
         
-        video.volume = 0.2; // Volume control moved here safely
+        video.volume = 0.2; 
         activateNativeControls(wrapper);
         video.play().catch(err => console.log("Playback error:", err));
       }
 
       quad.addEventListener("click", handleActivation);
-      video.addEventListener("click", handleActivation); // Touch anywhere is restored and safe
+      video.addEventListener("click", handleActivation); 
 
       video.addEventListener("play", () => {
         document.querySelectorAll("video").forEach(otherVideo => {
@@ -196,7 +204,7 @@
 
       video.addEventListener("pause", () => {
         quad.classList.remove("disabled");
-        lastPauseTime = Date.now(); // Records the timestamp to stop the loop
+        lastPauseTime = Date.now(); 
       });
       
       video.addEventListener("ended", () => quad.classList.remove("disabled"));
