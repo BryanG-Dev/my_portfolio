@@ -34,14 +34,11 @@
 
   const topArrow = nav.querySelector('a[href="#"]');
   if (topArrow) {
-    const handleTopScroll = (e) => {
+    topArrow.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.pushState(null, null, window.location.pathname);
-    };
-
-    topArrow.addEventListener("click", handleTopScroll);
-    topArrow.addEventListener("pointerdown", handleTopScroll);
+    });
   }
 
   nav.querySelectorAll('a:not([href="#"])').forEach(link => {
