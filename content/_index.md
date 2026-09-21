@@ -85,88 +85,6 @@ My work has primarily focused on real-time interactive systems in game developme
 - Act as lead developer on multiple game projects, managing concurrent development efforts while training, onboarding, and supporting new developers.
 - Investigate, diagnose, and resolve system-level issues to ensure stability, performance, and reliability.
 
-<style>
-  .custom-accordion summary::-webkit-details-marker { display: none; }
-  .custom-accordion summary { list-style: none; }
-  .custom-accordion .arrow-icon {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    transform: rotate(180deg); /* Starts pointing up */
-  }
-</style>
-
-<details class="custom-accordion mt-6 rounded-lg bg-neutral-75 dark:bg-neutral-800 p-4 border border-neutral-200 dark:border-neutral-700 transition-all">
-  <summary class="cursor-pointer font-semibold text-primary-600 dark:text-primary-400 select-none text-center" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 0.5rem;">
-    <span>Systems and Tool Overview</span>
-    <span class="arrow-icon">▼</span>
-  </summary>
-  
-  <div class="mt-4 space-y-3 text-sm text-neutral-600 dark:text-neutral-300 border-t border-neutral-200 dark:border-neutral-700 pt-3 text-left">
-     <div>
-      <strong class="text-neutral-800 dark:text-neutral-100">• Pre-Tell & Character Animation Systems:</strong> 
-      Developed multiple reusable animation and pre-tell frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
-    </div>
-   <div>
-      <strong class="text-neutral-800 dark:text-neutral-100">• Session Recovery Sytem:</strong> 
-      Built and Integrated a system that adds persistence hooks into core engine states, to enable developers to restore game completely on any main game interruption.
-    </div>
-    <div>
-      <strong class="text-neutral-800 dark:text-neutral-100">• English-to-Spanish Localization Sytem:</strong> 
-      Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
-    </div>
-    <div>
-      <strong class="text-neutral-800 dark:text-neutral-100">• Screenshot Capture Tool:</strong> 
-      Built a capture and export tool enabling engineers and QA to capture screenshots and transfer them via USB for testing and bug reporting on cabinets.
-    </div>
-    <div>
-      <strong class="text-neutral-800 dark:text-neutral-100">• On-screen FPS Utility:</strong> 
-      Built and integrated a real-time on-screen FPS counter to existing core systems to track performance metrics across all game states.
-    </div>
-<div>
-  <strong class="text-neutral-800 dark:text-neutral-100">• Developer Utility Tools:</strong> 
-  Extended an existing tester interface with quick-access utility buttons to streamline development cycles, eliminating multi-step menu navigation:
-  <ul class="list-disc list-inside mt-1 space-y-1">
-    <li>Quick access to game logs and cache file clearing</li>
-    <li>Configurable frame delay control to simulate low-frame conditions for animation and recovery testing</li>
-    <li>Autoplay toggles for streamlined testing</li>
-    <li>Currency/Points configuration swapping for register layouts</li>
-    <li>Localized text previewing for screen layouts</li>
-  </ul>
-</div>
-  </div>
-</details>
-
-<script>
-  (function() {
-    const details = document.currentScript.previousElementSibling;
-    const arrow = details.querySelector('.arrow-icon');
-    let rotation = 180;
-
-    details.addEventListener('toggle', () => {
-      if (details.open) {
-        // Opening: Sweeps clockwise from 180° to 360° (pointing down)
-        rotation = 360;
-        arrow.style.transition = 'transform 0.3s ease';
-        arrow.style.transform = `rotate(${rotation}deg)`;
-      } else {
-        // Closing: Sweeps further clockwise from 360° to 540° (pointing up)
-        rotation = 540;
-        arrow.style.transition = 'transform 0.3s ease';
-        arrow.style.transform = `rotate(${rotation}deg)`;
-
-        // The exact millisecond the close animation finishes, 
-        // invisibly snap back to 180° without a transition so it's ready for the next loop.
-        setTimeout(() => {
-          arrow.style.transition = 'none';
-          rotation = 180;
-          arrow.style.transform = `rotate(${rotation}deg)`;
-        }, 300);
-      }
-    });
-  })();
-</script>
-
-
 </div>
 </div>
 </div>
@@ -209,6 +127,85 @@ My work has primarily focused on real-time interactive systems in game developme
 
 # Projects
 Check out some of my projects below:
+
+<style>
+  .custom-accordion summary::-webkit-details-marker { display: none; }
+  .custom-accordion summary { list-style: none; }
+  .custom-accordion .arrow-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform: rotate(180deg);
+    position: relative;
+    top: 2px; /* Adjust this value: negative moves it up, positive moves it down */
+  }
+</style>
+
+<details class="custom-accordion mt-6 rounded-xl glass-card p-4 border border-neutral-200 dark:border-neutral-700/50 transition-all">
+  <summary class="cursor-pointer font-semibold text-neutral-800 dark:text-neutral-100 select-none text-center" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 0.5rem;">
+    <span>Shared Frameworks and Utility Tools</span>
+    <span class="arrow-icon">▼</span>
+  </summary>
+  
+  <div class="mt-4 space-y-3 text-sm text-neutral-600 dark:text-neutral-300 border-t border-neutral-200 dark:border-neutral-700/50 pt-3 text-left">
+     <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• Pre-Tell & Character Animation Systems:</strong> 
+      Developed multiple reusable animation and pre-tell frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
+    </div>
+   <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• Session Recovery System:</strong> 
+      Built and Integrated a system that adds persistence hooks into core engine states, to enable developers to restore game completely on any main game interruption.
+    </div>
+    <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• English-to-Spanish Localization System:</strong> 
+      Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
+    </div>
+    <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• Screenshot Capture Tool:</strong> 
+      Built a capture and export tool enabling engineers and QA to capture screenshots and transfer them via USB for testing and bug reporting on cabinets.
+    </div>
+    <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• On-screen FPS Utility:</strong> 
+      Built and integrated a real-time on-screen FPS counter to existing core systems to track performance metrics across all game states.
+    </div>
+    <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• Developer Utility Tools:</strong> 
+      Extended an existing tester interface with quick-access utility buttons to streamline development cycles, eliminating multi-step menu navigation:
+      <ul class="list-disc list-inside mt-1 space-y-1">
+        <li>Quick access to game logs and cache file clearing</li>
+        <li>Configurable frame delay control to simulate low-frame conditions for animation and recovery testing</li>
+        <li>Autoplay toggles for streamlined testing</li>
+        <li>Currency/Points configuration swapping for register layouts</li>
+        <li>Localized text previewing for screen layouts</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<script>
+  (function() {
+    const details = document.currentScript.previousElementSibling;
+    const arrow = details.querySelector('.arrow-icon');
+    let rotation = 180;
+
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        rotation = 360;
+        arrow.style.transition = 'transform 0.3s ease';
+        arrow.style.transform = `rotate(${rotation}deg)`;
+      } else {
+        rotation = 540;
+        arrow.style.transition = 'transform 0.3s ease';
+        arrow.style.transform = `rotate(${rotation}deg)`;
+
+        setTimeout(() => {
+          arrow.style.transition = 'none';
+          rotation = 180;
+          arrow.style.transform = `rotate(${rotation}deg)`;
+        }, 300);
+      }
+    });
+  })();
+</script>
 
 ---
 
