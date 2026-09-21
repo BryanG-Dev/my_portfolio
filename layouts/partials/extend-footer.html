@@ -33,23 +33,48 @@
   if (!nav) return;
 
   const topArrow = nav.querySelector('a[href="#"]');
+  let isNavigating = false;
+  let navTimeout = null;
+
   if (topArrow) {
     topArrow.addEventListener("click", (e) => {
       e.preventDefault();
+      
+      // Force hide immediately on click
+      nav.classList.remove("visible"); 
+      
+      isNavigating = true;
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.pushState(null, null, window.location.pathname);
+      
+      if (navTimeout) clearTimeout(navTimeout);
+      navTimeout = setTimeout(() => {
+        isNavigating = false;
+        lastScrollY = window.scrollY;
+      }, 800);
     });
   }
 
   nav.querySelectorAll('a:not([href="#"])').forEach(link => {
-    link.addEventListener("pointerdown", function(e) {
+    link.addEventListener("click", function(e) { 
       const href = this.getAttribute('href');
       if (href && href.startsWith('#')) {
-        e.preventDefault();
+        e.preventDefault(); 
         const target = document.querySelector(href);
         if (target) {
+          
+          // Force hide immediately on click
+          nav.classList.remove("visible"); 
+          
+          isNavigating = true;
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           history.pushState(null, null, href);
+
+          if (navTimeout) clearTimeout(navTimeout);
+          navTimeout = setTimeout(() => {
+            isNavigating = false;
+            lastScrollY = window.scrollY;
+          }, 800);
         }
       }
     });
@@ -282,6 +307,8 @@
   }
 
   function onScroll() {
+    if (isNavigating) return; // Prevent scroll checks while jumping to a section
+
     const current = window.scrollY;
     const delta = current - lastScrollY;
     const pastHero = current > 300;
@@ -314,30 +341,6 @@
     lastScrollY = current;
   }
 
-  window.addEventListener("scroll", onScroll);
+  window.addEventListener("scroll", onScroll, { passive: true });
 })();
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-      const video = wrapper.querySelector('video');
-      const posterUrl = video.getAttribute('poster');
-
-      if (posterUrl && wrapper) {
-        wrapper.style.backgroundImage = `url('${posterUrl}')`;
-        wrapper.style.backgroundSize = 'cover'; 
-        wrapper.style.backgroundPosition = 'center';
-        wrapper.style.backgroundRepeat = 'no-repeat';
-
-        video.style.opacity = '0';
-        video.style.transition = 'opacity 0.2s ease';
-
-        video.addEventListener('play', () => {
-          wrapper.style.backgroundImage = 'none';
-          video.style.opacity = '1';
-        }, { once: true });
-      }
-    });
-  });
 </script>
