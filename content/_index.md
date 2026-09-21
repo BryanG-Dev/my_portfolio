@@ -74,7 +74,7 @@ My work has primarily focused on real-time interactive systems in game developme
 ### Software Engineer / Game Programmer
 
 **Pace-O-Matic inc.** 
-<br>2016 – Present
+<br>2016 - Present
 
 <div style="max-width:600px; margin:0 auto; text-align:left;">
 
@@ -99,7 +99,7 @@ My work has primarily focused on real-time interactive systems in game developme
 
 <div class="glass-card">
 
-### Oracle Certified Associate — Java SE 8 Programmer
+### Oracle Certified Associate - Java SE 8 Programmer
 **Issued: Java SE 8 Certification**
 <br>2026
 
@@ -112,7 +112,7 @@ My work has primarily focused on real-time interactive systems in game developme
 <div class="glass-card">
 <div style="padding: 0rem 1.5rem -2rem 1.5rem; margin-bottom: -2rem;" >
 
-### Associate of Applied Science — Computer Simulations & Game Programming
+### Associate of Applied Science - Computer Simulations & Game Programming
 **Gwinnett Technical College**
 <br>2010 – 2015
 
