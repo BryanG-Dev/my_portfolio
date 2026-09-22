@@ -169,8 +169,9 @@ Check out some of my projects below:
     </div>
     <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• Developer Utility Tools:</strong> 
-      Extended an existing tester interface with quick-access utility buttons to streamline development cycles, eliminating multi-step menu navigation:
+      Extended an existing tester interface with quick-access utility tools to streamline development cycles, eliminating multi-step menu navigation:
       <ul class="list-disc list-inside mt-1 space-y-1">
+        <li>State reset tool to restore fresh environment defaults for instant setup.</li>
         <li>Quick access to game logs and cache file clearing</li>
         <li>Configurable frame delay control to simulate low-frame conditions for animation and recovery testing</li>
         <li>Autoplay toggles for streamlined testing</li>
