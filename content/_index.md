@@ -148,12 +148,16 @@ Check out some of my projects below:
   
   <div class="mt-4 space-y-3 text-sm text-neutral-600 dark:text-neutral-300 border-t border-neutral-200 dark:border-neutral-700/50 pt-3 text-left">
      <div>
-      <strong class="text-neutral-900 dark:text-neutral-100">• Pre-Tell & Character Animation Systems:</strong> 
-      Developed multiple reusable animation and pre-tell frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
+      <strong class="text-neutral-900 dark:text-neutral-100">• Pre-reveal & Character Animation Systems:</strong> 
+      Developed multiple reusable animation and Pre-reveal frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
     </div>
    <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• Session Recovery System:</strong> 
       Built and Integrated a system that adds persistence hooks into core engine states, to enable developers to restore game completely on any main game interruption.
+    </div>
+    <div>
+      <strong class="text-neutral-900 dark:text-neutral-100">• Console Logging API for Debug:</strong> 
+      Developed a flexible Java console logging library that formats debug data into clean, structured, and aligned ASCII tables with customizable settings and layouts, replacing unformatted text streams for faster real-time state inspection and data analysis.
     </div>
     <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• English-to-Spanish Localization System:</strong> 
