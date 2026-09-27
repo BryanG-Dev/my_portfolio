@@ -55,7 +55,7 @@ My work has primarily focused on real-time interactive systems in game developme
 - **Languages:** Java, OpenGL, XML, GLSL, Python, C++, GML, HTML, CSS, Spanish 
 - **Core CS Concepts:** Object-Oriented Programming (OOP), Data Integrity, Design Patterns (Model View Controller, Observer, Finite State Machines)  
 - **Tools:** SVN, Spine, Git, JIRA, GIMP, Excel/Calc, ClaudeCode
-- **Focus Area:** Game Development  
+- **Focus Area:** Game Development, Reusable Systems, Optimization
 
 </div>
 </div>
