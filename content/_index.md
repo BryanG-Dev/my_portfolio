@@ -52,7 +52,7 @@ My work has primarily focused on real-time interactive systems in game developme
 </div>
 <div style="max-width:600px; margin:0 auto; text-align:left;">
 
-- **Languages:** Java, OpenGL, XML, GLSL, Python, C++, GML, HTML, CSS, Spanish 
+- **Languages:** Java, OpenGL, XML, GLSL, Python, C#, C++, GML, HTML, CSS, Spanish 
 - **Core CS Concepts:** Object-Oriented Programming (OOP), Data Integrity, Model View Controller design, Finite State Machines, Design Patterns:
     <span style="font-size: 15px; display: inline-block; margin-left: 20px;">  (Singleton, Mediator, Observer, Builder, Decorator, Template, State)</span>
 - **Tools:** SVN, Spine, Git, JIRA, GIMP, Excel/Calc, ClaudeCode
