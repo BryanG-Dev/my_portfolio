@@ -81,7 +81,7 @@ My work has primarily focused on real-time interactive systems in game developme
 - Develop and maintain legally compliant Class II skill games, integrating gameplay, graphics, and audio systems in collaboration with cross-functional teams.
 - Design and implement new bonus mechanics and gameplay systems with a focus on secure currency handling, state management, and data integrity.
 - Architect reusable game systems and bonus frameworks used as templates across multiple titles, supporting full session recovery and state continuity.
-- Optimize core game systems and resources for performance, stability, and reliability. Develop internal tools and utility systems to support development efficiency and debugging, improving workflow and reducing manual overhead.
+- Optimize core game systems and resources for performance, stability, and reliability. Develop internal tools and utility systems to support development efficiency, performance metrics, debugging, improving workflow and reducing manual overhead.
 - Act as lead developer on multiple game projects, managing concurrent development efforts while training, onboarding, and supporting new developers.
 - Investigate, diagnose, and resolve system-level issues to ensure stability, performance, and reliability.
 
