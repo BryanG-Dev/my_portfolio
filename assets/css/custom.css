@@ -69,6 +69,30 @@
   margin-top: 12px;
 }
 
+/* Remove bottom margins on all child elements inside the accordion */
+.project-details ul,
+.project-details ol {
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+}
+
+.project-details li {
+  margin-bottom: 0.5rem; /* Adjust spacing between bullets if desired */
+}
+
+.project-details li:last-child,
+.project-details li:last-child > p,
+.project-details p:last-child {
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Tighten the top margin on the divider rule immediately following .project-details */
+.project-details + hr,
+.project-details.open + hr {
+  margin-top: 1rem !important; /* Adjust this value to set the gap before the line */
+}
+
 /* ===================================================== */
 /* BUTTONS (Vibrant Blue & Dynamic Light Mode Tint) */
 /* ===================================================== */
@@ -278,7 +302,7 @@ h1 a[href^="#"], h2 a[href^="#"], h3 a[href^="#"] {
   justify-content: center;
   margin-bottom: 16px;
   padding-top: 6px; 
-  padding-bottom: 12px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
