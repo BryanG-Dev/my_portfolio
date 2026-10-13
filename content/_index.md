@@ -166,7 +166,7 @@ Check out some of my projects below:
     </div>
     <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• Screen Capture Tool:</strong> 
-      Built a screen capture and export tool enabling engineers and QA to capture screenshots or videos, view/play, delete, and navigate through the capture list, as well as transfer them via USB for testing and bug reporting on cabinets.
+      Built a screen capture and export tool enabling engineers and QA to capture and export screenshots or videos on cabinets. Includes a capture viewer to view, play, delete, and navigate through the capture list, as well as the ability to transfer them via USB for feature recording, testing, and bug reporting.
     </div>
     <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• On-screen FPS Utility:</strong> 
