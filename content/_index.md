@@ -165,8 +165,8 @@ Check out some of my projects below:
       Designed and implemented a system-wide English-to-Spanish localization framework providing consistent multilingual support across all games.
     </div>
     <div>
-      <strong class="text-neutral-900 dark:text-neutral-100">• Screenshot Capture Tool:</strong> 
-      Built a capture and export tool enabling engineers and QA to capture, view, delete, and navigate through screenshots, as well as transfer them via USB for testing and bug reporting on cabinets.
+      <strong class="text-neutral-900 dark:text-neutral-100">• Screen Capture Tool:</strong> 
+      Built a screen capture and export tool enabling engineers and QA to capture screenshots or videos, view/play, delete, and navigate through the capture list, as well as transfer them via USB for testing and bug reporting on cabinets.
     </div>
     <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• On-screen FPS Utility:</strong> 
