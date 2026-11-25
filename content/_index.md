@@ -148,6 +148,11 @@ Check out some of my projects below:
   </summary>
   
   <div class="mt-4 space-y-3 text-sm text-neutral-600 dark:text-neutral-300 border-t border-neutral-200 dark:border-neutral-700/50 pt-3 text-left">
+      <div>
+      <strong class="text-neutral-900 dark:text-neutral-100"> •
+      Particle System, Live Controls & Standalone Editor:</strong> 
+      Designed and implemented a custom reusable particle system with a live control panel integrated directly into the existing tester interface, paired with a standalone editor tool enabling artists to design, preview, and export drop-in particle configurations for games.
+    </div>
      <div>
       <strong class="text-neutral-900 dark:text-neutral-100">• Pre-reveal & Character Animation Systems:</strong> 
       Developed multiple reusable animation and Pre-reveal frameworks shared across multiple titles to coordinate character animations and game resources to build anticipation in desired game states.
